@@ -6,12 +6,14 @@ http://savannah.gnu.org/bugs/?group=findutils
   forwarded as: 4279 missing newline on "--help" output
 * #123919: findutils: find segfaults on ia64
   forwarded as: 4294 implicit declarations
+  FIXED in upstream CVS: Sat 08/02/2003 at 12:12
 * #162838: findutils: find -regex documentation is misleading
   forwarded as: 
   4298 find -regex is either not working properly or not documented properly
 * #111143: findutils: manpage has misleading description of -print0 option
   forwarded as: 
   http://savannah.gnu.org/bugs/?func=detailbug&bug_id=4345&group_id=61
+  FIXED in upstream CVS: Sat 08/02/2003 at 12:02.
 * #159221: findutils: locate: -e ignores orphaned symlinks
   forwarded as:
   http://savannah.gnu.org/support/index.php?func=detailsupport&support_id=102277&group_id=61
