@@ -9,3 +9,13 @@ http://savannah.gnu.org/bugs/?group=findutils
 * #162838: findutils: find -regex documentation is misleading
   forwarded as: 
   4298 find -regex is either not working properly or not documented properly
+* #111143: findutils: manpage has misleading description of -print0 option
+  forwarded as: 
+  http://savannah.gnu.org/bugs/?func=detailbug&bug_id=4345&group_id=61
+* #159221: findutils: locate: -e ignores orphaned symlinks
+  forwarded as:
+  http://savannah.gnu.org/support/index.php?func=detailsupport&support_id=102277&group_id=61
+* #192330: patch for GNU/FreeBSD
+  forwarded as
+  http://savannah.gnu.org/patch/index.php?func=detailpatch&patch_id=1515&group_id=61
+
