@@ -1,8 +1,3 @@
-10_missing_includes
-20_missing_newlines
 25_destdir_localstatedir
-30_locate_nologinsh
-35_updatedb-location
-36_savannah-8623
 40_direntry.texi
 50_install_info
