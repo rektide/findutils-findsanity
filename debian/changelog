@@ -14,6 +14,10 @@ findutils (4.2.3.20041106-UNRELEASED) unstable; urgency=low
     - documents type of supported regular expressions for -regex
       (Closes: #162838)
     - Closes: #256367: Deprecated usage of trap in locate/updatedb.sh
+    - includes some examples in find.1 manpage. (Closes: #111578)
+    - new option -ignore_readdir_race to selectively suppress the obnoxious
+      race-condition caused errormessages. (Closes: #67782)
+    - -print0/-0 issues explained in more detail. (Closes: #111143)
   * Add shfs to PRUNFS (Closes: #260780)
 
  -- Andreas Metzler <ametzler@debian.org>  Sat,  6 Nov 2004 20:53:17 +0100
