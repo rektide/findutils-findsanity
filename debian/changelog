@@ -23,6 +23,10 @@ findutils (4.2.3.20041106-UNRELEASED) unstable; urgency=low
      30_locate_nologinsh 35_updatedb-location 36_savannah-8623 40_direntry
      50_install_info
   * Add shfs to PRUNFS (Closes: #260780)
+  * New patch: 10_updatedb-findopts: Add --findoptions option to updatedb to
+    pass global options to find.
+  * Set FINDOPTIONS='-ignore_readdir_race' for updatedb.sh's cron-job and stop
+    redirecting stderr to /dev/null.  (Closes: #245874, #169730)
 
  -- Andreas Metzler <ametzler@debian.org>  Sat,  6 Nov 2004 20:53:17 +0100
 
