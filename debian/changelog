@@ -1,6 +1,10 @@
 findutils (4.2.8-1) experimental; urgency=low
 
-  * New uptream version
+  * New upstream version
+    - New option --arg‐file=file and extended documentation about
+      stdin-handling (short in manpage, more extensive in info).
+      (Closes: #5956)
+    - improved behavior on automounted directories.
 
  -- Andreas Metzler <ametzler@debian.org>  Tue, 30 Nov 2004 10:19:56 +0100
 
