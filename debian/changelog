@@ -18,6 +18,7 @@ findutils (4.2.3.20041106-UNRELEASED) unstable; urgency=low
     - new option -ignore_readdir_race to selectively suppress the obnoxious
       race-condition caused errormessages. (Closes: #67782)
     - -print0/-0 issues explained in more detail. (Closes: #111143)
+    - includes supplied patch for GNU/FreeBSD. (Closes: #192330)
     
    * Removed unnecessary patches: 10_missing_includes 20_missing_newlines
      30_locate_nologinsh 35_updatedb-location 36_savannah-8623 40_direntry
