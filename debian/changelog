@@ -1,3 +1,9 @@
+findutils (4.2.11-2) experimental; urgency=low
+
+  * find -printf '%n' (hard link count) was broken (savannah #11495).
+
+ -- Andreas Metzler <ametzler@debian.org>  Fri,  7 Jan 2005 09:13:32 +0100
+
 findutils (4.2.11-1) experimental; urgency=low
 
   * New upstream version.

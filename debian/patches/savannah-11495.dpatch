@@ -1,0 +1,36 @@
+#! /bin/sh -e
+## savannah-11495.dpatch by James Youngman <jay@gnu.org> 
+##
+## All lines beginning with `## DP:' are a description of the patch.
+## DP: fix find -printf %n
+
+[ -f debian/patches/00patch-opts ] && . debian/patches/00patch-opts
+patch_opts="${patch_opts:--f --no-backup-if-mismatch} ${2:+-d $2}"
+
+case "$1" in
+    -patch) patch -p0 ${patch_opts} < $0;;
+    -unpatch) patch -R -p0 ${patch_opts} < $0;;
+    *)
+        echo "`basename $0`: script expects -patch|-unpatch as argument" >&2
+        exit 1;;
+esac
+
+exit 0
+
+@DPATCH@
+Index: find/parser.c
+===================================================================
+RCS file: /cvsroot/findutils/findutils/find/parser.c,v
+retrieving revision 1.48
+retrieving revision 1.49
+diff -u -r1.48 -r1.49
+--- find/parser.c	3 Jan 2005 00:41:29 -0000	1.48
++++ find/parser.c	5 Jan 2005 23:52:50 -0000	1.49
+@@ -1797,6 +1797,7 @@
+     case 'n':			/* number of links */
+       fprintf_stat_needed = true;
+       *fmt++ = 's';
++      break;
+       
+       /* Numeric items that DO honour #, 0, + flags.
+        */
