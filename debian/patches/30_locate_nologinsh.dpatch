@@ -1,0 +1,57 @@
+#!/bin/sh -e
+## 30_locate_nologinsh.dpatch by Christian Kurz <shorty@debian.org>rg>
+##
+## All lines beginning with `## DP:' are a description of the patch.
+## DP: updatedb does not fail if --localuser has no valid and executable
+## DP: shell. Bug#113774
+
+if [ $# -ne 1 ]; then
+    echo >&2 "`basename $0`: script expects -patch|-unpatch as argument"
+    exit 1
+fi
+
+[ -f debian/patches/00patch-opts ] && . debian/patches/00patch-opts
+patch_opts="${patch_opts:--f --no-backup-if-mismatch}"
+
+case "$1" in
+       -patch) patch $patch_opts -p1 < $0;;
+       -unpatch) patch $patch_opts -p1 -R < $0;;
+        *)
+                echo >&2 "`basename $0`: script expects -patch|-unpatch as argument"
+                exit 1;;
+esac
+
+exit 0
+
+@DPATCH@
+diff -urNad /home/ametzler/TIN/FINDUTILS/findutils-4.1.20/locate/updatedb.sh findutils-4.1.20/locate/updatedb.sh
+--- /home/ametzler/TIN/FINDUTILS/findutils-4.1.20/locate/updatedb.sh	Sat May 24 20:36:25 2003
++++ findutils-4.1.20/locate/updatedb.sh	Sat Jul 12 17:00:49 2003
+@@ -53,6 +53,9 @@
+ # You can set these in the environment, or use command-line options,
+ # to override their defaults:
+ 
++# Shell to use
++: ${SHELL="/bin/sh"}
++
+ # Non-network directories to put in the database.
+ : ${SEARCHPATHS="/"}
+ 
+@@ -117,7 +120,7 @@
+ {
+ if test -n "$SEARCHPATHS"; then
+   if [ "$LOCALUSER" != "" ]; then
+-    su $LOCALUSER -c \
++    su $LOCALUSER -s $SHELL -c \
+     "$find $SEARCHPATHS \
+      \\( $prunefs_exp \
+      -type d -regex '$PRUNEREGEX' \\) -prune -o -print"
+@@ -170,7 +173,7 @@
+ {
+ if test -n "$SEARCHPATHS"; then
+   if [ "$LOCALUSER" != "" ]; then
+-    su $LOCALUSER -c \
++    su $LOCALUSER -s $SHELL -c \
+     "$find $SEARCHPATHS \
+      \( $prunefs_exp \
+      -type d -regex '$PRUNEREGEX' \) -prune -o -print"

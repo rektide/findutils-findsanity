@@ -1,0 +1,6 @@
+10_missing_includes
+20_missing_newlines
+25_destdir_localstatedir
+30_locate_nologinsh
+35_updatedb-location
+40_direntry.texi

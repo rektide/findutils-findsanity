@@ -1,0 +1,61 @@
+#!/bin/sh -e
+## 40_direntry.texi.dpatch by Karl Berry <karl@freefriends.org>
+##
+## All lines beginning with `## DP:' are a description of the patch.
+## DP: Update texinfo docs to use @direntry, to help dh_installinfo
+## DP: See bug #182172
+
+if [ $# -ne 1 ]; then
+    echo >&2 "`basename $0`: script expects -patch|-unpatch as argument"
+    exit 1
+fi
+
+[ -f debian/patches/00patch-opts ] && . debian/patches/00patch-opts
+patch_opts="${patch_opts:--f --no-backup-if-mismatch}"
+
+case "$1" in
+       -patch) patch $patch_opts -p1 < $0;;
+       -unpatch) patch $patch_opts -p1 -R < $0;;
+        *)
+                echo >&2 "`basename $0`: script expects -patch|-unpatch as argument"
+                exit 1;;
+esac
+
+exit 0
+
+@DPATCH@
+--- findutils-4.1.20/doc/find.texi.ginal	2003-07-14 12:32:17.000000000 +0200
++++ findutils-4.1.20/doc/find.texi	2003-07-14 12:33:55.000000000 +0200
+@@ -12,18 +12,16 @@
+ @finalout
+ @end iftex
+ 
++@dircategory Basics
++@direntry
++* Finding files: (find).        Operating on files matching certain criteria.
++@end direntry
+ @ifinfo
+-@format
+-START-INFO-DIR-ENTRY
+-* Finding Files: (find).        Listing and operating on files
+-                                that match certain criteria.
+-END-INFO-DIR-ENTRY
+-@end format
+ 
+ This file documents the GNU utilities for finding files that match
+ certain criteria and performing various operations on them.
+ 
+-Copyright (C) 1994 Free Software Foundation, Inc.
++Copyright (C) 1994, 2003 Free Software Foundation, Inc.
+ 
+ Permission is granted to make and distribute verbatim copies of
+ this manual provided the copyright notice and this permission notice
+@@ -55,7 +53,7 @@
+ 
+ @page
+ @vskip 0pt plus 1filll
+-Copyright @copyright{} 1994 Free Software Foundation, Inc.
++Copyright @copyright{} 1994, 2003 Free Software Foundation, Inc.
+ 
+ Permission is granted to make and distribute verbatim copies of
+ this manual provided the copyright notice and this permission notice

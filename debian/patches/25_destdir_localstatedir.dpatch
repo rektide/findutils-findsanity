@@ -1,0 +1,48 @@
+#!/bin/sh -e
+## 25_destdir_localstatedir.dpatch by Andreas Metzler <ametzler@debian.org>
+##
+## All lines beginning with `## DP:' are a description of the patch.
+## DP: DESTDIR is ignored by make install when generating localstatedir
+
+if [ $# -ne 1 ]; then
+    echo >&2 "`basename $0`: script expects -patch|-unpatch as argument"
+    exit 1
+fi
+
+[ -f debian/patches/00patch-opts ] && . debian/patches/00patch-opts
+patch_opts="${patch_opts:--f --no-backup-if-mismatch}"
+
+case "$1" in
+       -patch) patch $patch_opts -p1 < $0;;
+       -unpatch) patch $patch_opts -p1 -R < $0;;
+        *)
+                echo >&2 "`basename $0`: script expects -patch|-unpatch as argument"
+                exit 1;;
+esac
+
+exit 0
+
+@DPATCH@
+diff -urNad /home/ametzler/TIN/FINDUTILS/findutils-4.1.20/locate/Makefile.am findutils-4.1.20/locate/Makefile.am
+--- /home/ametzler/TIN/FINDUTILS/findutils-4.1.20/locate/Makefile.am	Mon May 26 14:25:39 2003
++++ findutils-4.1.20/locate/Makefile.am	Sat Jul 12 16:51:33 2003
+@@ -36,6 +36,6 @@
+ 	chmod +x $@
+ 
+ install-data-hook:
+-	$(top_srcdir)/mkinstalldirs $(localstatedir)
++	$(top_srcdir)/mkinstalldirs $(DESTDIR)$(localstatedir)
+ 
+ SUBDIRS = testsuite
+diff -urNad /home/ametzler/TIN/FINDUTILS/findutils-4.1.20/locate/Makefile.in findutils-4.1.20/locate/Makefile.in
+--- /home/ametzler/TIN/FINDUTILS/findutils-4.1.20/locate/Makefile.in	Mon May 26 20:18:17 2003
++++ findutils-4.1.20/locate/Makefile.in	Sat Jul 12 16:52:15 2003
+@@ -752,7 +752,7 @@
+ 	chmod +x $@
+ 
+ install-data-hook:
+-	$(top_srcdir)/mkinstalldirs $(localstatedir)
++	$(top_srcdir)/mkinstalldirs $(DESTDIR)$(localstatedir)
+ # Tell versions [3.59,3.63) of GNU make to not export all variables.
+ # Otherwise a system limit (for SysV at least) may be exceeded.
+ .NOEXPORT:

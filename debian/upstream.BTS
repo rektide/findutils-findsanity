@@ -1,0 +1,11 @@
+I've forwarded some of Debian's reports to
+http://savannah.gnu.org/bugs/?group=findutils
+
+* xargs and locate missing newline on --help output
+  #102708 and #117425
+  forwarded as: 4279 missing newline on "--help" output
+* #123919: findutils: find segfaults on ia64
+  forwarded as: 4294 implicit declarations
+* #162838: findutils: find -regex documentation is misleading
+  forwarded as: 
+  4298 find -regex is either not working properly or not documented properly

@@ -1,0 +1,15 @@
+#! /bin/sh
+set -e
+
+if [ "$1" = "configure" ]; then
+  # up to 4.1.7-2 locatedb was in non-FHS-dir /var/lib/locate
+  if dpkg --compare-versions "$2" le-nl "4.1.7-2" ; then
+    if [ -f /var/lib/locate/locatedb ]; then
+      mv /var/lib/locate/locatedb /var/cache/locate/
+      rmdir /var/lib/locate 2>/dev/null || true
+    fi
+  fi
+fi
+
+#DEBHELPER#
+# vim:tabstop=2:expandtab:shiftwidth=2

@@ -1,0 +1,53 @@
+#!/bin/sh -e
+## 10_missing_includes.dpatch by John R.Daily <jdaily@progeny.com>
+##
+## All lines beginning with `## DP:' are a description of the patch.
+## DP: Fix some missing prototype definitions.
+
+if [ $# -ne 1 ]; then
+    echo >&2 "`basename $0`: script expects -patch|-unpatch as argument"
+    exit 1
+fi
+
+[ -f debian/patches/00patch-opts ] && . debian/patches/00patch-opts
+patch_opts="${patch_opts:--f --no-backup-if-mismatch}"
+
+case "$1" in
+       -patch) patch $patch_opts -p1 < $0;;
+       -unpatch) patch $patch_opts -p1 -R < $0;;
+        *)
+                echo >&2 "`basename $0`: script expects -patch|-unpatch as argument"
+                exit 1;;
+esac
+
+exit 0
+
+@DPATCH@
+diff -urNad /home/ametzler/TIN/FINDUTILS/findutils-4.1.20/find/fstype.c findutils-4.1.20/find/fstype.c
+--- /home/ametzler/TIN/FINDUTILS/findutils-4.1.20/find/fstype.c	Sat May 24 20:36:25 2003
++++ findutils-4.1.20/find/fstype.c	Sat Jul 12 16:40:05 2003
+@@ -30,6 +30,10 @@
+ extern int errno;
+ #endif
+ 
++/* implicit declaration of function `xstrtoumax' */
++#include "xstrtol.h"
++
++
+ #if ENABLE_NLS
+ # include <libintl.h>
+ # define _(Text) gettext (Text)
+diff -urNad /home/ametzler/TIN/FINDUTILS/findutils-4.1.20/locate/locate.c findutils-4.1.20/locate/locate.c
+--- /home/ametzler/TIN/FINDUTILS/findutils-4.1.20/locate/locate.c	Mon May 26 15:39:54 2003
++++ findutils-4.1.20/locate/locate.c	Sat Jul 12 16:41:01 2003
+@@ -59,6 +59,10 @@
+ #undef PACKAGE
+ #include <config.h>
+ #include <stdio.h>
++
++/* isupper/islower: implicit declaration */
++#include <ctype.h>
++
+ #include <sys/types.h>
+ #include <sys/stat.h>
+ #include <time.h>
