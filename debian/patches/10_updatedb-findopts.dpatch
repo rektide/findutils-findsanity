@@ -24,8 +24,36 @@ esac
 exit 0
 
 @DPATCH@
---- findutils/locate/updatedb.1.orig	2004-11-06 22:33:54.000000000 +0100
-+++ findutils/locate/updatedb.1	2004-11-07 10:56:33.000000000 +0100
+diff -Nur findutils/doc/find.texi findutils-new/doc/find.texi
+--- findutils/doc/find.texi	2004-11-06 22:33:47.000000000 +0100
++++ findutils-new/doc/find.texi	2004-11-07 15:03:09.000000000 +0100
+@@ -2012,6 +2012,11 @@
+ database contains entries for:
+ 
+ @table @code
++@item --findoptions='@var{OPTION}@dots{}'
++Global options to pass on to @code{find}.
++The environment variable @code{FINDOPTIONS} also sets this value.
++Default is none.
++
+ @item --localpaths='@var{path}@dots{}'
+ Non-network directories to put in the database.
+ Default is @file{/}.
+@@ -2312,6 +2317,11 @@
+ @end example
+ 
+ @table @code
++@item --findoptions='@var{OPTION}@dots{}'
++Global options to pass on to @code{find}.
++The environment variable @code{FINDOPTIONS} also sets this value.
++Default is none.
++
+ @item --localpaths='@var{path}@dots{}'
+ Non-network directories to put in the database.
+ Default is @file{/}.
+diff -Nur findutils/locate/updatedb.1 findutils-new/locate/updatedb.1
+--- findutils/locate/updatedb.1	2004-11-06 22:33:54.000000000 +0100
++++ findutils-new/locate/updatedb.1	2004-11-07 15:03:09.000000000 +0100
 @@ -41,6 +41,11 @@
  produce incorrect results if given a new-format database.
  .SH OPTIONS
@@ -38,8 +66,9 @@ exit 0
  .B \-\-localpaths='\fIpath1 path2...\fP'
  Non-network directories to put in the database.
  Default is /.
---- findutils/locate/updatedb.sh.orig	2004-11-06 22:33:54.000000000 +0100
-+++ findutils/locate/updatedb.sh	2004-11-07 10:41:47.000000000 +0100
+diff -Nur findutils/locate/updatedb.sh findutils-new/locate/updatedb.sh
+--- findutils/locate/updatedb.sh	2004-11-06 22:33:54.000000000 +0100
++++ findutils-new/locate/updatedb.sh	2004-11-07 15:05:19.000000000 +0100
 @@ -20,7 +20,8 @@
  # csh original by James Woods; sh conversion by David MacKenzie.
  
@@ -73,13 +102,13 @@ exit 0
      # : A1
      su $LOCALUSER -s $SHELL -c \
 -    "$find $SEARCHPATHS \
-+    "$find $FINDOPTIONS $SEARCHPATHS \
++    "$find $SEARCHPATHS $FINDOPTIONS \
       \\( $prunefs_exp \
       -type d -regex '$PRUNEREGEX' \\) -prune -o $print_option"
    else
      # : A2
 -    $find $SEARCHPATHS \
-+    $find $FINDOPTIONS $SEARCHPATHS \
++    $find $SEARCHPATHS $FINDOPTIONS \
       \( $prunefs_exp \
       -type d -regex "$PRUNEREGEX" \) -prune -o $print_option
    fi
@@ -88,12 +117,12 @@ exit 0
      # : A3
      su $NETUSER -s $SHELL -c \
 -     "$find $NETPATHS \\( -type d -regex '$PRUNEREGEX' -prune \\) -o $print_option" ||
-+     "$find $FINDOPTIONS $NETPATHS \\( -type d -regex '$PRUNEREGEX' -prune \\) -o $print_option" ||
++     "$find $NETPATHS $FINDOPTIONS \\( -type d -regex '$PRUNEREGEX' -prune \\) -o $print_option" ||
      exit $?
    else
      # : A4
 -    $find $NETPATHS \( -type d -regex "$PRUNEREGEX" -prune \) -o $print_option ||
-+    $find $FINDOPTIONS $NETPATHS \( -type d -regex "$PRUNEREGEX" -prune \) -o $print_option ||
++    $find $NETPATHS $FINDOPTIONS \( -type d -regex "$PRUNEREGEX" -prune \) -o $print_option ||
      exit $?
    fi
  fi
@@ -102,13 +131,13 @@ exit 0
      # : A5
      su $LOCALUSER -s $SHELL -c \
 -    "$find $SEARCHPATHS \
-+    "$find $FINDOPTIONS $SEARCHPATHS \
++    "$find $SEARCHPATHS $FINDOPTIONS \
       \( $prunefs_exp \
       -type d -regex '$PRUNEREGEX' \) -prune -o $print_option" || exit $?
    else
      # : A6
 -    $find $SEARCHPATHS \
-+    $find $FINDOPTIONS $SEARCHPATHS \
++    $find $SEARCHPATHS $FINDOPTIONS \
       \( $prunefs_exp \
       -type d -regex "$PRUNEREGEX" \) -prune -o $print_option || exit $?
    fi
@@ -117,38 +146,12 @@ exit 0
      # : A7
      su $NETUSER -s $SHELL -c \
 -     "$find $NETPATHS \\( -type d -regex '$PRUNEREGEX' -prune \\) -o $print_option" ||
-+     "$find $FINDOPTIONS $NETPATHS \\( -type d -regex '$PRUNEREGEX' -prune \\) -o $print_option" ||
++     "$find $NETPATHS $FINDOPTIONS \\( -type d -regex '$PRUNEREGEX' -prune \\) -o $print_option" ||
      exit $?
    else
      # : A8
 -    $find $NETPATHS \( -type d -regex "$PRUNEREGEX" -prune \) -o $print_option ||
-+    $find $FINDOPTIONS $NETPATHS \( -type d -regex "$PRUNEREGEX" -prune \) -o $print_option ||
++    $find $NETPATHS $FINDOPTIONS \( -type d -regex "$PRUNEREGEX" -prune \) -o $print_option ||
      exit $?
    fi
  fi
---- findutils/doc/find.texi.orig	2004-11-06 22:33:47.000000000 +0100
-+++ findutils/doc/find.texi	2004-11-07 11:03:13.000000000 +0100
-@@ -2012,6 +2012,11 @@
- database contains entries for:
- 
- @table @code
-+@item --findoptions='@var{OPTION}@dots{}'
-+Global options to pass on to @code{find}.
-+The environment variable @code{FINDOPTIONS} also sets this value.
-+Default is none.
-+
- @item --localpaths='@var{path}@dots{}'
- Non-network directories to put in the database.
- Default is @file{/}.
-@@ -2312,6 +2317,11 @@
- @end example
- 
- @table @code
-+@item --findoptions='@var{OPTION}@dots{}'
-+Global options to pass on to @code{find}.
-+The environment variable @code{FINDOPTIONS} also sets this value.
-+Default is none.
-+
- @item --localpaths='@var{path}@dots{}'
- Non-network directories to put in the database.
- Default is @file{/}.
