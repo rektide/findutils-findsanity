@@ -1,6 +1,11 @@
 findutils (4.2.4-UNRELEASED) experimental; urgency=low
 
   * New upstream source
+    - Closes: #175372: findutils: man pages have L's on references
+    - includes 10_updatedb-findopts patch.
+    - does not print warning about listing options afeter non-options unless
+      connected to a tty.
+    - xargs now uses 128Kb instead of 20Kb of command line by default.
 
  -- Andreas Metzler <ametzler@debian.org>  Tue,  9 Nov 2004 10:57:24 +0100
 
