@@ -1,6 +1,8 @@
 findutils (4.2.10.CVS20041219-1) experimental; urgency=low
 
   * New upstream, CVS from CVS20041219 (pre- 4.2.11).
+    * -printf '%P' works correctly again.
+  * Run testsuite.
 
  -- Andreas Metzler <ametzler@debian.org>  Sun, 19 Dec 2004 11:58:08 +0100
 

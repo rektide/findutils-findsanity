@@ -46,7 +46,7 @@ build-stamp:  config.status
 
 	# Add here commands to compile the package.
 	$(MAKE)
-	#/usr/bin/docbook-to-man debian/findutils.sgml > findutils.1
+	$(MAKE) check
 
 	touch build-stamp
 
