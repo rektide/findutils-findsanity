@@ -2,6 +2,14 @@ findutils (4.2.14-1) experimental; urgency=low
 
   * New upstream version
     - includes patch to fix savannah #11495.
+    - locate: New options  -L, --follow|-P, -H, --nofollow for ignoring
+      dangling symlinks (or not). (Closes: #159221)
+    - find supports -exec ... {} +.
+    - locate support for FreeBSD options (Sclms, m and s are ignored, but
+      undocumented, I've already opened upstream report #11730 on that.)
+      (Closes: #102914)
+    - find built with --enable-d_type-optimisation, for using
+      readdir/getdents. (Closes: #202512)
 
  -- Andreas Metzler <ametzler@debian.org>  Tue, 25 Jan 2005 11:40:21 +0100
 

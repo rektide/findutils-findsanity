@@ -34,6 +34,7 @@ config.status: patch-stamp configure
 	CFLAGS="$(CFLAGS)" ./configure \
 		--host=$(DEB_HOST_GNU_TYPE) --build=$(DEB_BUILD_GNU_TYPE) \
 		--prefix=/usr --localstatedir=/var/cache/locate \
+		--enable-d_type-optimisation \
 		--libexecdir='$${prefix}/lib/locate' \
 		--mandir='$${prefix}/share/man' \
 		--infodir='$${prefix}/share/info'
