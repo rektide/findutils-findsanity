@@ -6,7 +6,6 @@ findutils (4.2.3.CVS20041106-1) experimental; urgency=low
     - Closes: #219855: -printf: accepts C octal escapes, contrary to the
       documentation.
     - Closes: #246040: findutils: find -printf %H segfaults
-    - Closes: #175372: findutils: man pages have L's on references
     - Closes: #185202: findutils: extra ")" not caught
     - Closes: #185203: findutils: overflow causes -mtime to succeed
     - Closes: #244766: /usr/bin/locate: locate should have equivalent of
