@@ -20,7 +20,8 @@ findutils (4.2.3.20041106-UNRELEASED) unstable; urgency=low
     - -print0/-0 issues explained in more detail. (Closes: #111143)
     
    * Removed unnecessary patches: 10_missing_includes 20_missing_newlines
-     30_locate_nologinsh 35_updatedb-location 36_savannah-8623
+     30_locate_nologinsh 35_updatedb-location 36_savannah-8623 40_direntry
+     50_install_info
   * Add shfs to PRUNFS (Closes: #260780)
 
  -- Andreas Metzler <ametzler@debian.org>  Sat,  6 Nov 2004 20:53:17 +0100
