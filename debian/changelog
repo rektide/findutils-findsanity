@@ -1,9 +1,10 @@
 findutils (4.2.20-1) experimental; urgency=low
 
-  * [locate] Do not index cifs (Closes: #295399) and lustre (Closes: #300323)
-    filesystems by default.
+  * [locate] Do not index cifs (Closes: #295399) lustre (Closes: #300323) and
+    nfs4 (Closes: #300631) filesystems by default.
   * [locate] Ignore /media by default. (Closes: #300429)
   * New upstream version 4.2.20
+    - includes up-to-date Italian translation. (Closes: #286977)
 
  -- Andreas Metzler <ametzler@debian.org>  Sun, 27 Mar 2005 10:54:02 +0200
 
