@@ -1,6 +1,7 @@
 findutils (4.2.14-1) experimental; urgency=low
 
   * New upstream version
+    - includes patch to fix savannah #11495.
 
  -- Andreas Metzler <ametzler@debian.org>  Tue, 25 Jan 2005 11:40:21 +0100
 
