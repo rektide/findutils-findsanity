@@ -1,3 +1,12 @@
+findutils (4.1.20-3) unstable; urgency=low
+
+  * Don't ship /usr/share/info/dir.gz, change Makefile.in to use install-info
+    test from new automake. The bug only applied to the autobuilt versions,
+    because I don't have /usr/sbin in $PATH, thanks to Santiago Vila.
+    (Closes: #217627)
+
+ -- Andreas Metzler <ametzler@debian.org>  Sun, 26 Oct 2003 13:44:21 +0100
+
 findutils (4.1.20-2) unstable; urgency=low
 
   * Run updatedb cronjob with nice level 10 per default (configurable in

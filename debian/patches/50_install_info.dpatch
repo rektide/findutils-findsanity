@@ -1,0 +1,46 @@
+#!/bin/sh -e
+## /50_install_info.dpatch by Andreas Metzler <ametzler@debian.org>
+##
+## All lines beginning with `## DP:' are a description of the patch.
+## DP: Fix breakage caused broken install-info test in automake and
+## DP: dpkg suddenly sending install-info --version to stdout
+
+if [ $# -ne 1 ]; then
+    echo >&2 "`basename $0`: script expects -patch|-unpatch as argument"
+    exit 1
+fi
+
+[ -f debian/patches/00patch-opts ] && . debian/patches/00patch-opts
+patch_opts="${patch_opts:--f --no-backup-if-mismatch}"
+
+case "$1" in
+       -patch) patch $patch_opts -p1 < $0;;
+       -unpatch) patch $patch_opts -p1 -R < $0;;
+        *)
+                echo >&2 "`basename $0`: script expects -patch|-unpatch as argument"
+                exit 1;;
+esac
+
+exit 0
+
+@DPATCH@
+--- /tmp/Makefile.in	Sun Oct 26 13:29:59 2003
++++ findutils/doc/Makefile.in	Sun Oct 26 13:32:20 2003
+@@ -213,7 +213,7 @@
+ uninstall-info-am:
+ 	$(PRE_UNINSTALL)
+ 	@if (install-info --version && \
+-	     install-info --version | grep -i -v debian) >/dev/null 2>&1; then \
++	     install-info --version 2>&1 | sed 1q | grep -i -v debian) >/dev/null 2>&1; then \
+ 	  list='$(INFO_DEPS)'; \
+ 	  for file in $$list; do \
+ 	    relfile=`echo "$$file" | sed 's|^.*/||'`; \
+@@ -366,7 +366,7 @@
+ 	done
+ 	@$(POST_INSTALL)
+ 	@if (install-info --version && \
+-	     install-info --version | grep -i -v debian) >/dev/null 2>&1; then \
++	     install-info --version 2>&1 | sed 1q | grep -i -v debian) >/dev/null 2>&1; then \
+ 	  list='$(INFO_DEPS)'; \
+ 	  for file in $$list; do \
+ 	    relfile=`echo "$$file" | sed 's|^.*/||'`; \
