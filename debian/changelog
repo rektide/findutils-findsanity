@@ -2,8 +2,9 @@ findutils (4.1.20-4) unstable; urgency=low
 
   * Add sysfs to PRUNFS (Closes: #219340)
   * Add watch file provided Stefano Fabri. (Closes: #248758)
+  * locate crashed on invalid db-files. Fix pulled from CVS. (Closes: #256811)
 
- -- Andreas Metzler <ametzler@debian.org>  Thu, 13 May 2004 09:18:26 +0200
+ -- Andreas Metzler <ametzler@debian.org>  Tue, 29 Jun 2004 13:30:57 +0200
 
 findutils (4.1.20-3) unstable; urgency=low
 

@@ -1,0 +1,52 @@
+#!/bin/sh -e
+## 36_savannah-8623.dpatch by Andreas Metzler <ametzler@debian.org>
+##
+## All lines beginning with `## DP:' are a description of the patch.
+## DP: locate crashes on invalid databases.
+## DP: Debian bug #256811
+## DP: Upstream bug http://savannah.gnu.org/bugs/?func=detailitem&item_id=8623
+## DP: Fix pulled from CVS.
+
+if [ $# -ne 1 ]; then
+    echo >&2 "`basename $0`: script expects -patch|-unpatch as argument"
+    exit 1
+fi
+
+[ -f debian/patches/00patch-opts ] && . debian/patches/00patch-opts
+patch_opts="${patch_opts:--f --no-backup-if-mismatch}"
+
+case "$1" in
+       -patch) patch $patch_opts -p0 < $0;;
+       -unpatch) patch $patch_opts -p0 -R < $0;;
+        *)
+                echo >&2 "`basename $0`: script expects -patch|-unpatch as argument"
+                exit 1;;
+esac
+
+exit 0
+
+@DPATCH@
+Index: locate/locate.c
+===================================================================
+RCS file: /cvsroot/findutils/findutils/locate/locate.c,v
+retrieving revision 1.12
+retrieving revision 1.13
+diff -u -r1.12 -r1.13
+--- locate/locate.c	3 Jan 2004 21:50:50 -0000	1.12
++++ locate/locate.c	3 May 2004 10:08:59 -0000	1.13
+@@ -374,6 +374,15 @@
+ 	  else
+ 	    count += c;
+ 
++	  if (count > strlen(path))
++	    {
++	      /* This should not happen generally , but since we're
++	       * reading in data which is outside our control, we
++	       * cannot prevent it.
++	       */
++	      error(1, 0, _("locate database `%s' is corrupt or invalid"), dbfile);
++	    }
++	  
+ 	  /* Overlay the old path with the remainder of the new.  */
+ 	  nread = locate_read_str (&path, &pathsize, fp, 0, count); 
+ 	  if (nread < 0)
