@@ -32,8 +32,8 @@ findutils (4.2.3.CVS20041106-1) experimental; urgency=low
   * Add shfs to PRUNFS (Closes: #260780)
   * New patch: 10_updatedb-findopts: Add --findoptions option to updatedb to
     pass global options to find.
-  * Set FINDOPTIONS='-ignore_readdir_race' for updatedb.sh's cron-job and stop
-    redirecting stderr to /dev/null.  (Closes: #245874, #169730)
+  * Set FINDOPTIONS='-ignore_readdir_race' for updatedb.sh's cron-job.
+    (Closes: #169730)
   * standards-version 3.6.1 (no changes required).
 
  -- Andreas Metzler <ametzler@debian.org>  Sun,  7 Nov 2004 13:11:28 +0100
