@@ -1,3 +1,9 @@
+findutils (4.2.4-UNRELEASED) experimental; urgency=low
+
+  * New upstream source
+
+ -- Andreas Metzler <ametzler@debian.org>  Tue,  9 Nov 2004 10:57:24 +0100
+
 findutils (4.2.3.CVS20041106-1) experimental; urgency=low
 
   * New upstream version (pre-4.2.4, CVS 2004-11-06).
