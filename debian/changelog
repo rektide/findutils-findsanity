@@ -1,3 +1,9 @@
+findutils (4.2.8-1) experimental; urgency=low
+
+  * New uptream version
+
+ -- Andreas Metzler <ametzler@debian.org>  Tue, 30 Nov 2004 10:19:56 +0100
+
 findutils (4.2.5-1) experimental; urgency=low
 
   * New upstream version
