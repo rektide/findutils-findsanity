@@ -12,7 +12,7 @@ if [ -f /etc/updatedb.conf ]; then
 fi
 
 if getent passwd $LOCALUSER > /dev/null ; then
-  cd / && nice -n ${NICE:-10} updatedb 2>/dev/null
+  cd / && nice -n ${NICE:-10} updatedb
 else
   echo "User $LOCALUSER does not exist."
   exit 1
