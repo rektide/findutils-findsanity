@@ -1,0 +1,48 @@
+Some people wish to have updatedb only include mount points which are
+automatically mounted by "mount -a", which mounts devices listed in
+/etc/fstab. 
+
+The following lines may be added to /etc/updatedb.conf to exclude
+non-automatic mount points from updatedb.  Add before the
+"export PRUNEPATHS" line in /etc/updatedb.conf. 
+
+# mount points not to be scanned (regexp matching lines into /etc/fstab)
+EXCLUDE_MOINT_POINTS=noauto
+EXCLUDE_PATH=`awk "/^#/ {next}; /$EXCLUDE_MOINT_POINTS/ {print \\$2}" < /etc/fstab | tr '\012' ' '`
+PRUNEPATHS="$PRUNEPATHS $EXCLUDE_PATH"
+
+This suggestion is due to Eric Delaunay
+<delaunay@lix.polytechnique.fr>
+
+
+> The problem is NOT
+> updatedb, rather it's actually caused by the "checksecurity" call in
+> /etc/cron.daily/standard.  The easy fix for this is to mount your NFS
+> stuff nosuid and nodev so it ignores them.
+
+--------------------------------
+
+My systems slows down everyday at bootup, how can I stop the daily
+updatedb-invocations?
+
+Edit /etc/updatedb.conf or even /etc/cron.daily/find. Both files
+are dpkg conffiles and you changes won't be overwritten.
+
+Examples:
+* Run weekly instead of daily:
+  Add this to the head of /etc/updatedb.conf
+  #----------
+  if [ -d /var/cache/locate ] ; then
+     # locatedb is younger than 7 days
+     [ -n "`find /var/cache/locate -name locatedb -mtime -7`" ] && exit 0
+  fi
+  #----------
+  To run every other day on would use "2" instead of "7".
+
+* Disable updatedb completely:
+  Either delete /etc/cron.daily/find or add "exit 0" as the second line of
+  /etc/cron.daily/find
+
+* On a laptop only update the locate database if running on AC-power:
+  Add "on_ac_power || exit 0" as the second line of /etc/cron.daily/find.
+  Sorry, this is for APM only, I don't know how to do it with ACPI.
