@@ -3,6 +3,7 @@ findutils (4.2.5-1) experimental; urgency=low
   * New upstream version
     - includes 25_destdir_localstatedir.dpatch, our last remaining patch, we
       are vanilla now.
+  * Add minimal debian/README.source.
 
  -- Andreas Metzler <ametzler@debian.org>  Sat, 20 Nov 2004 09:38:55 +0100
 
