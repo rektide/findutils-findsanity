@@ -1,3 +1,10 @@
+findutils (4.1.20-2) unstable; urgency=low
+
+  * Run updatedb cronjob with nice level 10 per default (configurable in
+    /etc/updatedb.conf) (Closes: #46548) (Thanks to era eriksson)
+
+ -- Andreas Metzler <ametzler@debian.org>  Thu, 23 Oct 2003 16:30:43 +0200
+
 findutils (4.1.20-1) unstable; urgency=low
 
   * New maintainer. Hijacked package as discussed on debian-devel and
