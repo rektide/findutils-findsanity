@@ -20,4 +20,7 @@ http://savannah.gnu.org/bugs/?group=findutils
 * #192330: patch for GNU/FreeBSD
   forwarded as
   http://savannah.gnu.org/patch/index.php?func=detailpatch&patch_id=1515&group_id=61
+* #208307: Documentation for '-printf %k' insufficient
+  forwarded as
+  http://savannah.gnu.org/bugs/?func=detailbug&bug_id=5034&group_id=6
 
