@@ -21,6 +21,11 @@ findutils (4.2.3.20041106-UNRELEASED) unstable; urgency=low
     - includes supplied patch for GNU/FreeBSD. (Closes: #192330)
     - updatedb invokes "cd /" before running commands as unprivileged user.
       (Closes: #262476)
+    - 'xargs -n 1 -i' works. (Closes: #31858). Please note that it is no bug
+      that -i changes xargs to pass a whole line of input as a single argument
+      instead of splitting on any blank characters as without -i. - Other
+      implementations behave the same and the -I XSI extension documented in
+      SUSv3/POSIX works like this, too.
     
    * Removed unnecessary patches: 10_missing_includes 20_missing_newlines
      30_locate_nologinsh 35_updatedb-location 36_savannah-8623 40_direntry
