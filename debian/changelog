@@ -1,6 +1,19 @@
 findutils (4.2.3.20041106-UNRELEASED) unstable; urgency=low
 
   * New upstream version (pre-4.2.4, CVS 2004-11-06).
+    - Closes: #176201: findutils: xargs enviroment size limited to 20k
+    - Closes: #254676: xargs: environment is too large for exec
+    - Closes: #219855: -printf: accepts C octal escapes, contrary to the
+      documentation.
+    - Closes: #246040: findutils: find -printf %H segfaults
+    - Closes: #175372: findutils: man pages have L's on references
+    - Closes: #185202: findutils: extra ")" not caught
+    - Closes: #185203: findutils: overflow causes -mtime to succeed
+    - Closes: #244766: /usr/bin/locate: locate should have equivalent of
+      -print0 option
+    - documents type of supported regular expressions for -regex
+      (Closes: #162838)
+    - Closes: #256367: Deprecated usage of trap in locate/updatedb.sh
 
  -- Andreas Metzler <ametzler@debian.org>  Sat,  6 Nov 2004 20:53:17 +0100
 
