@@ -2,6 +2,10 @@ findutils (4.1.20-2) unstable; urgency=low
 
   * Run updatedb cronjob with nice level 10 per default (configurable in
     /etc/updatedb.conf) (Closes: #46548) (Thanks to era eriksson)
+  * Document how to fine-tune/disable daily updatedb-runs in README.debian
+    (Closes: #183085, #183290)
+  * Make sure LOCALUSER is set to a nonempty value in /etc/cron.daily/find
+    (Closes: #189023)
 
  -- Andreas Metzler <ametzler@debian.org>  Thu, 23 Oct 2003 16:30:43 +0200
 
