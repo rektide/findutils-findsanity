@@ -1,3 +1,9 @@
+findutils (4.2.9-1) experimental; urgency=low
+
+  * New upstream source
+
+ -- Andreas Metzler <ametzler@debian.org>  Sun,  5 Dec 2004 22:33:29 +0100
+
 findutils (4.2.8-1) experimental; urgency=low
 
   * New upstream version
