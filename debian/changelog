@@ -1,3 +1,15 @@
+findutils (4.2.21-0) unstable; urgency=low
+
+  * New upstream version
+
+ -- Andreas Metzler <ametzler@debian.org>  Sat, 11 Jun 2005 13:28:59 +0200
+
+findutils (4.2.20-2) unstable; urgency=low
+
+  * Upload to unstable.
+
+ -- Andreas Metzler <ametzler@debian.org>  Thu,  9 Jun 2005 20:07:37 +0200
+
 findutils (4.2.20-1) experimental; urgency=low
 
   * [locate] Do not index cifs (Closes: #295399) lustre (Closes: #300323) and
