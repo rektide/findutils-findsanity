@@ -4,6 +4,13 @@ findutils (4.2.21-0) unstable; urgency=low
 
  -- Andreas Metzler <ametzler@debian.org>  Sat, 11 Jun 2005 13:28:59 +0200
 
+findutils (4.2.20-3) unstable; urgency=low
+
+  * find dir/foo -depth -empty was broken. Pull fix from 4.2.21.
+    (Closes: #313079)
+
+ -- Andreas Metzler <ametzler@debian.org>  Sun, 12 Jun 2005 17:05:41 +0200
+
 findutils (4.2.20-2) unstable; urgency=low
 
   * Upload to unstable.
