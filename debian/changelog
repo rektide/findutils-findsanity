@@ -1,6 +1,12 @@
 findutils (4.2.22-0) unstable; urgency=low
 
   * New upstream version
+    - fixes infinite loop of "find -follow" on trees with symlinks to ./.
+      (Closes: #313081)
+    - better documentation for %k and %d printf directives. (Closes: #208307)
+    - find filters out non-printable characters (which could mess up the
+      terminal) when printing the output to a console. (Closes: #311384)
+    - Typo fixes. (Closes: #301934, #312760, #312761) (Thanks, A Costa.)
 
  -- Andreas Metzler <ametzler@debian.org>  Mon, 13 Jun 2005 19:39:46 +0200
 
