@@ -1,8 +1,8 @@
-findutils (4.2.21-0) unstable; urgency=low
+findutils (4.2.22-0) unstable; urgency=low
 
   * New upstream version
 
- -- Andreas Metzler <ametzler@debian.org>  Sat, 11 Jun 2005 13:28:59 +0200
+ -- Andreas Metzler <ametzler@debian.org>  Mon, 13 Jun 2005 19:39:46 +0200
 
 findutils (4.2.20-3) unstable; urgency=low
 
