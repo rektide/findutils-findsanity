@@ -1,4 +1,4 @@
-findutils (4.2.22-0) unstable; urgency=low
+findutils (4.2.22-1) unstable; urgency=low
 
   * New upstream version
     - fixes infinite loop of "find -follow" on trees with symlinks to ./.
