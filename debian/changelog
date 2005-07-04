@@ -1,9 +1,10 @@
-findutils (4.2.23-0) unstable; urgency=low
+findutils (4.2.22-2) unstable; urgency=high
 
-  * New upstream version.
   * Remove locatedb on purge. (Closes: #315343)
+  * revert regex-syntax back to emacs-re. (Closes: #315136) Future versions
+    will allow to select this by commandline parameter.
 
- -- Andreas Metzler <ametzler@debian.org>  Sat, 25 Jun 2005 11:50:10 +0200
+ -- Andreas Metzler <ametzler@debian.org>  Mon,  4 Jul 2005 11:37:37 +0200
 
 findutils (4.2.22-1) unstable; urgency=low
 
