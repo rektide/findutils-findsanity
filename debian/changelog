@@ -1,4 +1,4 @@
-findutils (4.2.24-UNRELEASED) unstable; urgency=low
+findutils (4.2.24-1) unstable; urgency=low
 
   * standards-version 3.6.2, no changes required.
   * New upstream version 4.2.24:
