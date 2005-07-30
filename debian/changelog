@@ -1,8 +1,17 @@
-findutils (4.2.22-UNRELEASED) unstable; urgency=low
+findutils (4.2.24-UNRELEASED) unstable; urgency=low
 
   * standards-version 3.6.2, no changes required.
+  * New upstream version 4.2.24:
+    - "-printf %Y %y"n works correctly again (Closes: #320378).
+    - new option -regextype to finds for selecting more useful regex-variants
+      than the default GNU Emacs.
+    - find -exec rm -i {} \; works again. (Closes: #317019)
+    - xargs exits with correct exit status 123 if invoked command returned
+      non-zero returncode. (Closes: #319085)
+    - xargs -I option documented in manpage. (Closes: #317086)
+    - fixes to find.1 manpage (Closes: #318417)
 
- -- Andreas Metzler <ametzler@debian.org>  Fri,  8 Jul 2005 11:44:11 +0200
+ -- Andreas Metzler <ametzler@debian.org>  Sat, 30 Jul 2005 09:14:35 +0200
 
 findutils (4.2.22-2) unstable; urgency=high
 
