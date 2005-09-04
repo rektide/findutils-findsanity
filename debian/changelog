@@ -1,3 +1,12 @@
+findutils (4.2.25-1) unstable; urgency=low
+
+  * new upstream version 4.2.25. (bugfix and improved testsuite)
+  * add findutils-4.2.25-14390.dpatch, fixing a testsuite failure concerning
+    find -depth ... -quit
+  * Update debian/copyright.
+
+ -- Andreas Metzler <ametzler@debian.org>  Sun,  4 Sep 2005 09:35:59 +0200
+
 findutils (4.2.24-1) unstable; urgency=low
 
   * standards-version 3.6.2, no changes required.
