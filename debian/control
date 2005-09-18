@@ -1,5 +1,5 @@
 Source: findutils
-Section: base
+Section: utils
 Priority: required
 Maintainer: Andreas Metzler <ametzler@debian.org>
 Uploaders: Chuan-kai Lin <cklin@debian.org>
