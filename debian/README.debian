@@ -45,4 +45,6 @@ Examples:
 
 * On a laptop only update the locate database if running on AC-power:
   Add "on_ac_power || exit 0" as the second line of /etc/cron.daily/find.
-  Sorry, this is for APM only, I don't know how to do it with ACPI.
+  If you are using anacron for running cron.daily there is no need for
+  changing /etc/cron.daily/find, anacron will by default not execute the
+  jobs when the system is running on battery.
