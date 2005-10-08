@@ -6,7 +6,7 @@ findutils (4.2.25-2) UNRELEASED; urgency=low
   * [locate] add "none" to PRUNEFS to stop updatdb from indexing bind-mounted
     directory trees. (Closes: #329385)
   * Add a NEWS.Debian file, explaining the withdrawal of "find -perm +MODE"
-    and introduction of "find -perm /MODE". (Closes: #329358)
+    and introduction of "find -perm /MODE". (#329358)
 
  -- Andreas Metzler <ametzler@debian.org>  Sat,  8 Oct 2005 12:06:17 +0200
 
