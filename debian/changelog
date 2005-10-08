@@ -5,8 +5,10 @@ findutils (4.2.25-2) UNRELEASED; urgency=low
   * debian/README.debian: on_ac_power works for ACPI, too. (Closes: #306963)
   * [locate] add "none" to PRUNEFS to stop updatdb from indexing bind-mounted
     directory trees. (Closes: #329385)
+  * Add a NEWS.Debian file, explaining the withdrawal of "find -perm +MODE"
+    and introduction of "find -perm /MODE". (Closes: #329358)
 
- -- Andreas Metzler <ametzler@downhill.aus.cc>  Sun,  4 Sep 2005 10:23:45 +0200
+ -- Andreas Metzler <ametzler@debian.org>  Sat,  8 Oct 2005 12:06:17 +0200
 
 findutils (4.2.25-1) unstable; urgency=low
 
