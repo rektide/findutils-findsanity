@@ -3,7 +3,7 @@ findutils (4.2.26-1) unstable; urgency=low
   * mimick override-file and put find in section utils instead of base.
   * debian/README.debian: on_ac_power works for ACPI, too. (Closes: #306963)
   * Add a NEWS.Debian file, explaining the withdrawal of "find -perm +MODE"
-    and introduction of "find -perm /MODE". (#329358)
+    and introduction of "find -perm /MODE". (Closes: #329358)
   * New upstream version 4.2.26.
     - find manpage updated to document -perm /... instead of -perm +...
       (Closes: #330245)
