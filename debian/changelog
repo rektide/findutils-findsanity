@@ -4,8 +4,9 @@ findutils (4.2.26-2) unstable; urgency=low
     alpha, amd64 and ia64. (Closes: #340664)
   * [xargs] Limit number of arguments to (arg_max / sizeof(void*)) - 2 instead
     of ...-1, hopefully fing FTBFS on hppa.
+  * [updatedb] Add binfmt_misc, tmpfs, usbfs to PRUNEFS (Closes: #229551)
 
- -- Andreas Metzler <ametzler@debian.org>  Sat,  3 Dec 2005 12:41:04 +0100
+ -- Andreas Metzler <ametzler@debian.org>  Sat,  3 Dec 2005 13:52:20 +0100
 
 findutils (4.2.26-1) unstable; urgency=low
 
