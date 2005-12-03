@@ -3,7 +3,7 @@ findutils (4.2.26-2) unstable; urgency=low
   * [xargs] Use true instead of echo in testsuite, hopefully fixing FTBFS on
     alpha, amd64 and ia64. (Closes: #340664)
   * [xargs] Limit number of arguments to (arg_max / sizeof(void*)) - 2 instead
-    of ...-1, hopefully fing FTBFS on hppa.
+    of ...-1, hopefully fixing FTBFS on hppa.
   * [updatedb] Add binfmt_misc, tmpfs, usbfs to PRUNEFS (Closes: #229551)
 
  -- Andreas Metzler <ametzler@debian.org>  Sat,  3 Dec 2005 13:52:20 +0100
