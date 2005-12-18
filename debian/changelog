@@ -1,6 +1,9 @@
-findutils (4.2.26-3) unstable; urgency=low
+findutils (4.2.27-13) unstable; urgency=low
 
-  * NOT RELEASED YET
+  * New upstream version
+    - On systems running the Linux kernel, "find -printf %F" no longer
+      produces the wrong answer for files on filesystems that have been
+      remounted elsewhere using "mount --bind". (Savannah bug #14921).
 
  -- Andreas Metzler <ametzler@debian.org>  Sun,  4 Dec 2005 10:44:04 +0100
 
