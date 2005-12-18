@@ -1,9 +1,7 @@
 findutils (4.2.27-13) unstable; urgency=low
 
   * New upstream version
-    - On systems running the Linux kernel, "find -printf %F" no longer
-      produces the wrong answer for files on filesystems that have been
-      remounted elsewhere using "mount --bind". (Savannah bug #14921).
+  * Add udf to PRUNEFS (Closes: #340597)
 
  -- Andreas Metzler <ametzler@debian.org>  Sun,  4 Dec 2005 10:44:04 +0100
 
