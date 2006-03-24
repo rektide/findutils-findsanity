@@ -13,7 +13,7 @@ include /usr/share/dpatch/dpatch.make
 export DEB_HOST_GNU_TYPE   ?= $(shell dpkg-architecture -qDEB_HOST_GNU_TYPE)
 export DEB_BUILD_GNU_TYPE  ?= $(shell dpkg-architecture -qDEB_BUILD_GNU_TYPE)
 
-ifeq ($(DEB_BUILD_GNU_TYPE), $(DEB_HOST_GNU_TYPE))
+ifeq ($(DEB_BUILD_GNU_TYPE),$(DEB_HOST_GNU_TYPE))
 	confflags += --build $(DEB_HOST_GNU_TYPE)
 else
 	confflags += --build $(DEB_BUILD_GNU_TYPE) --host $(DEB_HOST_GNU_TYPE)
@@ -51,8 +51,9 @@ build-stamp:  config.status
 
 	# Add here commands to compile the package.
 	$(MAKE)
+ifeq ($(DEB_BUILD_GNU_TYPE),$(DEB_HOST_GNU_TYPE))
 	$(MAKE) check
-
+endif
 	touch build-stamp
 
 clean: clean1 unpatch

@@ -4,6 +4,8 @@ findutils (4.2.27-2) UNRELEASED; urgency=low
   * Invoke ./configure according to latest autotools-dev/README.Debian.gz,
     just with --build for regular builds, and both --build and --host when
     crosscompiling, instead of always specifying both.
+  * Do not run testsuite when cross-compiling. (Thanks, Pjotr Kourzanov)
+    (Closes: #358774)
 
  -- Andreas Metzler <ametzler@debian.org>  Fri, 24 Mar 2006 19:06:03 +0100
 
