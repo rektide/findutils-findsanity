@@ -1,3 +1,12 @@
+findutils (4.2.27-2) UNRELEASED; urgency=low
+
+  * NOT RELEASED YET
+  * Invoke ./configure according to latest autotools-dev/README.Debian.gz,
+    just with --build for regular builds, and both --build and --host when
+    crosscompiling, instead of always specifying both.
+
+ -- Andreas Metzler <ametzler@debian.org>  Fri, 24 Mar 2006 19:06:03 +0100
+
 findutils (4.2.27-1) unstable; urgency=low
 
   * New upstream version
