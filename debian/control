@@ -4,7 +4,7 @@ Priority: required
 Maintainer: Andreas Metzler <ametzler@debian.org>
 Uploaders: Chuan-kai Lin <cklin@debian.org>
 Build-Depends: texinfo, debhelper (>> 4.0.0), dpatch, autotools-dev, dejagnu
-Standards-Version: 3.6.2
+Standards-Version: 3.7.2
 
 Package: findutils
 Architecture: any

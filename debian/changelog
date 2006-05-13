@@ -1,3 +1,12 @@
+findutils (4.2.27-3) unstable; urgency=low
+
+  * [updatedb] use su "$LOCALUSER" -s $SHELL -c false instead of
+    su "$LOCALUSER" -s $SHELL false to make it work with current su in sid.
+    Thanks, Chronos Tachyon for bugreport and fix. (Closes: #366269)
+  * standards-version 3.7.2, no changes required.
+
+ -- Andreas Metzler <ametzler@debian.org>  Sat, 13 May 2006 13:41:30 +0200
+
 findutils (4.2.27-2) unstable; urgency=low
 
   * Invoke ./configure according to latest autotools-dev/README.Debian.gz,
