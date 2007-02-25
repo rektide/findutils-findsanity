@@ -1,8 +1,10 @@
-findutils (4.2.28-2) UNRELEASED; urgency=low
+findutils (4.2.28-2) unstable; urgency=low
 
-  * NOT RELEASED YET
+  * Pulled from 4.2.29
+    - Fix breakage with slightly more complicated commands and -exedir.
+      (Closes: #385896)
 
- -- Andreas Metzler <ametzler@debian.org>  Sun,  6 Aug 2006 10:39:51 +0200
+ -- Andreas Metzler <ametzler@debian.org>  Sun, 25 Feb 2007 10:44:55 +0100
 
 findutils (4.2.28-1) unstable; urgency=low
 
