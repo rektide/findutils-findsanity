@@ -1,0 +1,69 @@
+#! /bin/sh /usr/share/dpatch/dpatch-run
+## 11_fix_execdir.dpatch by Jay
+##
+## All lines beginning with `## DP:' are a description of the patch.
+## DP: Fix -execdir
+## DP: http://savannah.gnu.org/bugs/index.php?17782
+## DP: http://bugs.debian.org/385896
+
+@DPATCH@
+--- findutils-4.2.28/lib/buildcmd.c	2006-08-05 16:33:22.000000000 +0200
++++ findutils-4.2.29/lib/buildcmd.c	2006-11-20 23:32:48.000000000 +0100
+@@ -134,14 +134,12 @@
+     insertbuf = (char *) xmalloc (ctl->arg_max + 1);
+   p = insertbuf;
+ 
+-  need_prefix = 0;
+   do
+     {
+       size_t len;               /* Length in ARG before `replace_pat'.  */
+       char *s = mbstrstr (arg, ctl->replace_pat);
+       if (s)
+         {
+-          need_prefix = 1;
+           len = s - arg;
+         }
+       else
+@@ -161,31 +159,31 @@
+ 
+       if (s)
+         {
+-	  if (bytes_left <= lblen)
++	  if (bytes_left <= (lblen + pfxlen))
+ 	    break;
+ 	  else
+-	    bytes_left -= lblen;
+-
++	    bytes_left -= (lblen + pfxlen);
++	  
++	  if (prefix)
++	    {
++	      strcpy (p, prefix);
++	      p += pfxlen;
++	    }
+           strcpy (p, linebuf);
++          p += lblen;
++
+           arg += ctl->rplen;
+           arglen -= ctl->rplen;
+-          p += lblen;
+         }
+     }
+   while (*arg);
+   if (*arg)
+     error (1, 0, _("command too long"));
+   *p++ = '\0';
+-
+-  if (!need_prefix)
+-    {
+-      prefix = NULL;
+-      pfxlen = 0;
+-    }
+   
+   bc_push_arg (ctl, state,
+                insertbuf, p - insertbuf,
+-               prefix, pfxlen,
++               NULL, 0,
+                initial_args);
+ }
+ 
