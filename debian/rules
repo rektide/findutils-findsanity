@@ -38,7 +38,7 @@ config.status: patch-stamp configure
 	# Add here commands to configure the package.
 	CFLAGS="$(CFLAGS)" ./configure $(confflags) \
 		--prefix=/usr --localstatedir=/var/cache/locate \
-		--enable-d_type-optimisation --without-included-regex \
+		--enable-d_type-optimisation \
 		--libexecdir='$${prefix}/lib/locate' \
 		--mandir='$${prefix}/share/man' \
 		--infodir='$${prefix}/share/info'
