@@ -1,9 +1,14 @@
-findutils (4.2.30-2) UNRELEASED; urgency=low
+findutils (4.2.31-1) unstable; urgency=medium
 
-  * NOT RELEASED YET
   * Undo workaround for savannah #19550, since it is a glibc bug.
+  * New upstream bugfix release:
+    - Fixes locate heap buffer overflow when using databases in old format.
+      (CVE-2007-2452) Closes: #426862
+    - make clean does not delete regexprops.texi if cross-building.
+      (Closes: #420190)
+    - [-version] instead of [--version] in locate --help. (Closes: #412459)
 
- -- Andreas Metzler <ametzler@debian.org>  Sun, 15 Apr 2007 18:20:18 +0200
+ -- Andreas Metzler <ametzler@debian.org>  Sat,  2 Jun 2007 09:55:27 +0200
 
 findutils (4.2.30-1) unstable; urgency=low
 
