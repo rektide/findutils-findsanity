@@ -11,7 +11,16 @@ Architecture: any
 Essential: yes
 Pre-Depends: ${shlibs:Depends}
 Depends: ${misc:Depends}
-Description: utilities for finding files--find, xargs, and locate
+Description: utilities for finding files--find, xargs
  These utilities find files meeting specified criteria and perform
  various actions on the files which are found.
+
+Package: locate
+Architecture: any
+Priority: optional
+Depends: ${shlibs:Depends},${misc:Depends}, findutils (>> 4.3.8-1)
+Conflicts: slocate (<= 3.1-1.1)
+Description: maintain and query an index of a directory tree
+ updatedb generates an index of files and directories. GNU locate can be used
+ to quickly query this index.
 

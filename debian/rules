@@ -83,11 +83,17 @@ install: build
 	dh_installdirs
 
 	# Add here commands to install the package into debian/findutils.
-	$(MAKE) install DESTDIR=$(CURDIR)/debian/findutils
+	$(MAKE) install DESTDIR=$(CURDIR)/debian/tmp
 	install -m755 $(CURDIR)/debian/find-cron.daily \
-		$(CURDIR)/debian/findutils/etc/cron.daily/find
-	install -m644 debian/updatedb.conf $(CURDIR)/debian/findutils/etc/
-
+		$(CURDIR)/debian/locate/etc/cron.daily/find
+	install -m755 $(CURDIR)/debian/tmp/usr/bin/updatedb \
+		$(CURDIR)/debian/locate/usr/bin/updatedb.findutils
+	install -m755 $(CURDIR)/debian/tmp/usr/bin/locate \
+		$(CURDIR)/debian/locate/usr/bin/locate.findutils
+	install -m644 $(CURDIR)/debian/tmp/usr/share/man/man1/locate.1 \
+		$(CURDIR)/debian/locate/usr/share/man/man1/locate.findutils.1
+	install -m644 $(CURDIR)/debian/tmp/usr/share/man/man1/updatedb.1 \
+		$(CURDIR)/debian/locate/usr/share/man/man1/updatedb.findutils.1
 
 # Build architecture-independent files here.
 binary-indep: build install
@@ -100,7 +106,7 @@ binary-arch: build install
 	dh_installchangelogs ChangeLog
 	dh_installdocs
 	dh_installexamples
-#	dh_install
+	dh_install
 #	dh_installmenu
 #	dh_installdebconf
 #	# we have to install the cron script manually, it has the wrong filename

@@ -5,14 +5,43 @@
 # Written by Ian A. Murdock <imurdock@debian.org> and 
 #            Kevin Dalley <kevin@aimnet.com>
 
+[ -e /usr/bin/updatedb.findutils ] || exit 0
+
+# Global options for invocations of find(1)
+FINDOPTIONS='-ignore_readdir_race'
+# filesystems which are pruned from updatedb database
+PRUNEFS="NFS nfs nfs4 afs binfmt_misc proc smbfs autofs iso9660 ncpfs coda devpts ftpfs devfs mfs shfs sysfs cifs lustre_lite tmpfs usbfs udf"
+# paths which are pruned from updatedb database
+PRUNEPATHS="/tmp /usr/tmp /var/tmp /afs /amd /alex /var/spool /sfs /media"
+# netpaths which are added
+NETPATHS=""
+# run find as this user
 LOCALUSER="nobody"
-export LOCALUSER
-if [ -f /etc/updatedb.conf ]; then
-  . /etc/updatedb.conf
+# cron.daily/find: run at this priority -- higher number means lower priority
+# (this is relative to the default which cron sets, which is usually +5)
+NICE=10
+
+# Set the task to run with "idle" I/O priority if possible
+# Linux supports io scheduling priorities and classes since
+# 2.6.13 with the CFQ io scheduler
+
+if [ -x /usr/bin/ionice ]; then
+	ionice -c3 -p$$
 fi
 
+# allow keeping local customizations in a separate file
+if [ -r /etc/updatedb.findutils.cron.local ] ; then
+	. /etc/updatedb.findutils.cron.local
+fi
+export FINDOPTIONS
+export PRUNEFS
+export PRUNEPATHS
+export NETPATHS
+export LOCALUSER
+export NICE
+
 if getent passwd $LOCALUSER > /dev/null ; then
-  cd / && nice -n ${NICE:-10} updatedb 2>/dev/null
+  cd / && nice -n ${NICE:-10} updatedb.findutils 2>/dev/null
 else
   echo "User $LOCALUSER does not exist."
   exit 1
