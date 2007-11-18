@@ -2,21 +2,20 @@ findutils (4.2.31-2) UNRELEASED; urgency=low
 
   * NOT RELEASED YET
 
-  * fix removal of alternatives. (Thanks, dato)
-
-  * Split off locate/updatedb to a separate package.
-    (resulting description change Closes: #448523)
-  * Drop misnamed /etc/updatedb.conf and include its contents in cron.daily
-    file.  (updatedb.conf only configured the cronjob, but not any
-    invocation of updatedb. (Closes: #342713). Allow keeping customization in a
-    separate /etc/updatedb.findutils.cron.local (Closes: #344213)
-  * Set cronjob IO scheduling to idle. (Thanks, Alberto Marmodoro)
-    (Closes: #448398)
-  * Use alternatives to manage /usr/bin/locate and /usr/bin/updatedb.
-    (Closes: #57748)
-  * Remove orphaned locate related conffiles on findutils upgrade as described
-    in http://wiki.debian.org/DpkgConffileHandling
-  * In findutils.postinst remove locate database unless locate is installed.
+  * Merge changes from 4.3.8-1 to 4.3.8-3 to unstable:
+    + Split off locate/updatedb to a separate package.
+      (resulting description change Closes: #448523)
+    + Drop misnamed /etc/updatedb.conf and include its contents in cron.daily
+      file.  (updatedb.conf only configured the cronjob, but not any
+      invocation of updatedb. (Closes: #342713). Allow keeping customization in a
+      separate /etc/updatedb.findutils.cron.local (Closes: #344213)
+    + Set cronjob IO scheduling to idle. (Thanks, Alberto Marmodoro)
+      (Closes: #448398)
+    + Use alternatives to manage /usr/bin/locate and /usr/bin/updatedb.
+      (Closes: #57748)
+    + Remove orphaned locate related conffiles on findutils upgrade as described
+      in http://wiki.debian.org/DpkgConffileHandling
+    + In findutils.postinst remove locate database unless locate is installed.
 
  -- Andreas Metzler <ametzler@debian.org>  Sat,  2 Jun 2007 10:53:46 +0200
 
