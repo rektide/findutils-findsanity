@@ -18,7 +18,7 @@ if [ "$1" = "configure" ]; then
   # "something ok not-installed" when this script is run.
 
   if [ -d /var/cache/locate/ ] && \
-  dpkg --compare-versions "$2" le-nl "4.3.8-1" && \
+  dpkg --compare-versions "$2" le-nl "4.2.31-1" && \
   locatestatus=`dpkg-query -W -f='${Status}' locate 2> /dev/null` ; then
     locatestatus=`echo $locatestatus | cut -f3 -d\ `
     case "$locatestatus" in
