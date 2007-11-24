@@ -1,6 +1,4 @@
-findutils (4.2.31-2) UNRELEASED; urgency=low
-
-  * NOT RELEASED YET
+findutils (4.2.31-2) unstable; urgency=low
 
   * Merge changes from 4.3.8-1 to 4.3.8-3 to unstable:
     + Split off locate/updatedb to a separate package.
