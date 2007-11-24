@@ -1,3 +1,9 @@
+findutils (4.2.31-3) UNRELEASED; urgency=low
+
+  * NOT RELEASED YET
+
+ -- Andreas Metzler <ametzler@debian.org>  Sat, 24 Nov 2007 10:55:17 +0100
+
 findutils (4.2.31-2) unstable; urgency=low
 
   * Merge changes from 4.3.8-1 to 4.3.8-3 to unstable:
