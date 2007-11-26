@@ -2,9 +2,9 @@ Some people wish to have updatedb only include mount points which are
 automatically mounted by "mount -a", which mounts devices listed in
 /etc/fstab. 
 
-The following lines may be added to /etc/updatedb.conf to exclude
-non-automatic mount points from updatedb.  Add before the
-"export PRUNEPATHS" line in /etc/updatedb.conf. 
+The following lines may be added to /etc/cron.daily/find (or to a newly
+generated /etc/updatedb.findutils.cron.local) to exclude non-automatic mount
+points from updatedb.
 
 # mount points not to be scanned (regexp matching lines into /etc/fstab)
 EXCLUDE_MOINT_POINTS=noauto
@@ -25,12 +25,14 @@ This suggestion is due to Eric Delaunay
 My systems slows down everyday at bootup, how can I stop the daily
 updatedb-invocations?
 
-Edit /etc/updatedb.conf or even /etc/cron.daily/find. Both files
-are dpkg conffiles and you changes won't be overwritten.
+* Uninstall locate.
+
+* Edit /etc/cron.daily/find. It is a dpkg conffile and your changes won't be
+  overwritten.
 
 Examples:
 * Run weekly instead of daily:
-  Add this to the head of /etc/updatedb.conf
+  Add this to the head of /etc/cron.daily/find
   #----------
   if [ -d /var/cache/locate ] ; then
      # locatedb is younger than 7 days
