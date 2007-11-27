@@ -20,6 +20,7 @@ Architecture: any
 Priority: optional
 Depends: ${shlibs:Depends},${misc:Depends}, findutils (>> 4.2.31-1)
 Conflicts: slocate (<= 3.1-1.1)
+Replaces: findutils (<< 4.2.31-2)
 Description: maintain and query an index of a directory tree
  updatedb generates an index of files and directories. GNU locate can be used
  to quickly query this index.
