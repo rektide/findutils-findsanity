@@ -84,8 +84,8 @@ install: build
 
 	# Add here commands to install the package into debian/findutils.
 	$(MAKE) install DESTDIR=$(CURDIR)/debian/tmp
-	install -m755 $(CURDIR)/debian/find-cron.daily \
-		$(CURDIR)/debian/locate/etc/cron.daily/find
+	install -m755 $(CURDIR)/debian/locate-cron.daily \
+		$(CURDIR)/debian/locate/etc/cron.daily/locate
 	install -m755 $(CURDIR)/debian/tmp/usr/bin/updatedb \
 		$(CURDIR)/debian/locate/usr/bin/updatedb.findutils
 	install -m755 $(CURDIR)/debian/tmp/usr/bin/locate \

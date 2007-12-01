@@ -33,12 +33,7 @@ fi
 if [ -r /etc/updatedb.findutils.cron.local ] ; then
 	. /etc/updatedb.findutils.cron.local
 fi
-export FINDOPTIONS
-export PRUNEFS
-export PRUNEPATHS
-export NETPATHS
-export LOCALUSER
-export NICE
+export FINDOPTIONS PRUNEFS PRUNEPATHS NETPATHS LOCALUSER NICE
 
 if getent passwd $LOCALUSER > /dev/null ; then
   cd / && nice -n ${NICE:-10} updatedb.findutils 2>/dev/null

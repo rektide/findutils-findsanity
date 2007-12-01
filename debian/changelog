@@ -1,11 +1,13 @@
-findutils (4.2.31-3) UNRELEASED; urgency=low
+findutils (4.2.31-3) unstable; urgency=low
 
-  * NOT RELEASED YET
   * Add a note about the separate locate package to findutils' NEWS.Debian.
     README.Debian only talks about locate. Move it to the correct package,
     update contents. Closes: #453002
   * locate needs a Replaces: findutils (<< 4.2.31-2), since the helper
     binaries in /usr/lib/locate/ are shipped in both packages. Closes: #453078
+  * Rename /etc/cron.daily/find to /etc/cron.daily/locate. Use "export foo
+    bar" instead of "export foo ; export bar". (Thanks, jidanni).
+    Closes: #453490
 
  -- Andreas Metzler <ametzler@debian.org>  Sat, 24 Nov 2007 10:55:17 +0100
 
