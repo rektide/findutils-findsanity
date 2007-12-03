@@ -30,6 +30,9 @@ updatedb-invocations?
 * Edit /etc/cron.daily/locate. It is a dpkg conffile and your changes won't be
   overwritten.
 
+* Generate a new file /etc/updatedb.findutils.cron.local that consist of
+  the single line "exit 0" (without the quotes).
+
 Examples:
 * Run weekly instead of daily:
   Add this to the head of /etc/cron.daily/locate
