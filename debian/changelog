@@ -4,6 +4,7 @@ findutils (4.2.31-4) UNRELEASED; urgency=low
   * Allow setting IONICE_CLASS and IONICE_PRIORITY in
     /etc/updatedb.findutils.cron.local. (Thanks, Kees Cook).
     Closes: #454677
+  * Standards-Version: 3.7.3, no changes required.
 
  -- Andreas Metzler <ametzler@debian.org>  Sat,  1 Dec 2007 12:47:17 +0100
 
