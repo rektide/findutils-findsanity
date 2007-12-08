@@ -21,19 +21,29 @@ LOCALUSER="nobody"
 # (this is relative to the default which cron sets, which is usually +5)
 NICE=10
 
-# Set the task to run with "idle" I/O priority if possible
-# Linux supports io scheduling priorities and classes since
-# 2.6.13 with the CFQ io scheduler
-
-if [ -x /usr/bin/ionice ]; then
-	ionice -c3 -p$$
-fi
+# I/O priority
+# 1 for real time, 2 for best-effort, 3 for idle ("3" only allowed for root)
+IONICE_CLASS=3
+# 0-7 (only valid for IONICE_CLASS 1 and 2), 0=highest, 7=lowest 
+IONICE_PRIORITY=7
 
 # allow keeping local customizations in a separate file
 if [ -r /etc/updatedb.findutils.cron.local ] ; then
 	. /etc/updatedb.findutils.cron.local
 fi
 export FINDOPTIONS PRUNEFS PRUNEPATHS NETPATHS LOCALUSER NICE
+
+# Set the task to run with desired I/O priority if possible
+# Linux supports io scheduling priorities and classes since
+# 2.6.13 with the CFQ io scheduler
+if [ -x /usr/bin/ionice ]; then
+	# Avoid providing "-n" when IONICE_CLASS isn't 1 or 2
+	case "$IONICE_CLASS" in
+		1|2) priority="-n ${IONICE_PRIORITY:-7}" ;;
+		*) priority="" ;;
+	esac
+	ionice -c $IONICE_CLASS $priority -p $$
+fi
 
 if getent passwd $LOCALUSER > /dev/null ; then
   cd / && nice -n ${NICE:-10} updatedb.findutils 2>/dev/null
