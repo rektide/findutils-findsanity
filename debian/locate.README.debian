@@ -1,37 +1,35 @@
-Some people wish to have updatedb only include mount points which are
-automatically mounted by "mount -a", which mounts devices listed in
-/etc/fstab. 
+Debian README for GNU locate/updatedb.
 
-The following lines may be added to /etc/cron.daily/locate (or to a newly
-generated /etc/updatedb.findutils.cron.local) to exclude non-automatic mount
-points from updatedb.
+The database is updated daily by running /etc/cron.daily/locate.
+Customizations can be made by either editing this file directly (Since
+it is a dpkg-conffile changes will be preserved.) or by generating 
+/etc/updatedb.findutils.cron.local which will be sourced by the cronjob
+before running updatedb.
 
-# mount points not to be scanned (regexp matching lines into /etc/fstab)
-EXCLUDE_MOINT_POINTS=noauto
-EXCLUDE_PATH=`awk "/^#/ {next}; /$EXCLUDE_MOINT_POINTS/ {print \\$2}" < /etc/fstab | tr '\012' ' '`
-PRUNEPATHS="$PRUNEPATHS $EXCLUDE_PATH"
+The cronjob by default runs with nice level 10 and with IONICE_CLASS 3
+(idle). Using IONICE_CLASS is a trade-off between locate database
+consistency and friendliness to other processes. The nicer we are, the
+less impact we have on system performance when updating the database,
+because we generally spread our usage out more. Spreading the usage out
+a bit more means that updating the database takes longer and the result
+is a slightly less consistent view of the filesystem. Since it is not
+possible to get a perfectly consistent view anyway, using IONICE_CLASS=3
+is normally reasonable.
 
-This suggestion is due to Eric Delaunay
-<delaunay@lix.polytechnique.fr>
-
-
-> The problem is NOT
-> updatedb, rather it's actually caused by the "checksecurity" call in
-> /etc/cron.daily/standard.  The easy fix for this is to mount your NFS
-> stuff nosuid and nodev so it ignores them.
-
+-------------------------------
+Questions and examples
 --------------------------------
 
 My systems slows down everyday at bootup, how can I stop the daily
 updatedb-invocations?
 
+* Generate a new file /etc/updatedb.findutils.cron.local that consist of
+  the single line "exit 0" (without the quotes).
+
 * Uninstall locate.
 
 * Edit /etc/cron.daily/locate. It is a dpkg conffile and your changes won't be
   overwritten.
-
-* Generate a new file /etc/updatedb.findutils.cron.local that consist of
-  the single line "exit 0" (without the quotes).
 
 Examples:
 * Run weekly instead of daily:
@@ -53,3 +51,19 @@ Examples:
   If you are using anacron for running cron.daily there is no need for
   changing /etc/cron.daily/locate, anacron will by default not execute the
   jobs when the system is running on battery.
+
+* Some people wish to have updatedb only include mount points which are
+  automatically mounted by "mount -a", which mounts devices listed in
+  /etc/fstab. 
+
+  The following lines may be added to /etc/cron.daily/locate (or to a newly
+  generated /etc/updatedb.findutils.cron.local) to exclude non-automatic mount
+  points from updatedb.
+  
+  # mount points not to be scanned (regexp matching lines into /etc/fstab)
+  EXCLUDE_MOINT_POINTS=noauto
+  EXCLUDE_PATH=`awk "/^#/ {next}; /$EXCLUDE_MOINT_POINTS/ {print \\$2}" < /etc/fstab | tr '\012' ' '`
+  PRUNEPATHS="$PRUNEPATHS $EXCLUDE_PATH"
+  
+  This suggestion is due to Eric Delaunay
+  <delaunay@lix.polytechnique.fr>

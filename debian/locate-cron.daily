@@ -5,6 +5,8 @@
 # Written by Ian A. Murdock <imurdock@debian.org> and 
 #            Kevin Dalley <kevin@aimnet.com>
 
+# Please consult updatedb(1) and /usr/share/doc/locate/README.Debian
+
 [ -e /usr/bin/updatedb.findutils ] || exit 0
 
 # Global options for invocations of find(1)
