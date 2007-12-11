@@ -33,7 +33,7 @@ IONICE_PRIORITY=7
 if [ -r /etc/updatedb.findutils.cron.local ] ; then
 	. /etc/updatedb.findutils.cron.local
 fi
-export FINDOPTIONS PRUNEFS PRUNEPATHS NETPATHS LOCALUSER NICE
+export FINDOPTIONS PRUNEFS PRUNEPATHS NETPATHS LOCALUSER
 
 # Set the task to run with desired I/O priority if possible
 # Linux supports io scheduling priorities and classes since

@@ -7,6 +7,8 @@ findutils (4.2.31-4) UNRELEASED; urgency=low
   * Standards-Version: 3.7.3, no changes required.
   * Reformat /usr/share/doc/locate/README.Debian and add a comment about the
     effects of IONICE_CLASS. (Thanks, James Youngman)
+  * Do not export NICE in the cronjob, since updatedb itself does not make use
+    of it.
 
  -- Andreas Metzler <ametzler@debian.org>  Sat,  1 Dec 2007 12:47:17 +0100
 
