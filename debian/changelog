@@ -9,6 +9,8 @@ findutils (4.2.31-4) UNRELEASED; urgency=low
     effects of IONICE_CLASS. (Thanks, James Youngman)
   * Do not export NICE in the cronjob, since updatedb itself does not make use
     of it.
+  * findutils Suggests: mlocate|locate|slocate. Long desription of findutils
+    was improved. (Thanks, Justin B Rye). Closes: #455690
 
  -- Andreas Metzler <ametzler@debian.org>  Sat,  1 Dec 2007 12:47:17 +0100
 
