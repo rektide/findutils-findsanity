@@ -31,6 +31,9 @@ updatedb-invocations?
 * Edit /etc/cron.daily/locate. It is a dpkg conffile and your changes won't be
   overwritten.
 
+Q: How can I stop /etc/cron.daily/locate from using ionice?
+A: add UPDATDB_NO_IONICE=yes to /etc/updatedb.findutils.cron.local
+
 Examples:
 * Run weekly instead of daily:
   Add this to the head of /etc/cron.daily/locate
