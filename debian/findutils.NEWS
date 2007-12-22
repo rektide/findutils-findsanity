@@ -1,8 +1,8 @@
 findutils (4.2.31-2) unstable; urgency=low
 
-  * locate is no more included in the findutils package. It has been split off
+  * locate is no longer included in the findutils package. It has been split off
     to a separate package "locate". (There are alternative implementations
-    available, too. - See mlocate or slocate.)
+    available, too; see mlocate or slocate.)
 
  -- Andreas Metzler <ametzler@debian.org>  Sat,  2 Jun 2007 10:53:46 +0200
 
