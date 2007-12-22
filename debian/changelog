@@ -1,6 +1,5 @@
-findutils (4.2.31-4) UNRELEASED; urgency=low
+findutils (4.2.31-4) unstable; urgency=low
 
-  * NOT RELEASED YET
   * Allow setting IONICE_CLASS and IONICE_PRIORITY in
     /etc/updatedb.findutils.cron.local. (Thanks, Kees Cook).
     Closes: #454677
@@ -9,13 +8,14 @@ findutils (4.2.31-4) UNRELEASED; urgency=low
     effects of IONICE_CLASS. (Thanks, James Youngman)
   * Do not export NICE in the cronjob, since updatedb itself does not make use
     of it.
-  * findutils Suggests: mlocate|locate|slocate. Long desription of findutils
+  * findutils Suggests: mlocate|locate|slocate. Long description of findutils
     was improved. (Thanks, Justin B Rye). Closes: #455690
   * locate-cron.daily
     - Do not run ionice for kernels < 2.6.13. Redirect ionice stderr and
       stdout to /dev/null. (Thanks, Craig Sanders)
     - Allow disabling ionice by setting  UPDATDB_NO_IONICE to a non-empty
       value in /etc/updatedb.findutils.cron.local Closes: #456291
+    - run with "set -e"
   * Fixed minor grammar error in 4.2.31-2 entry of NEWS.Debian. (Thanks,
     Steve Langasek) Closes: #457231
 

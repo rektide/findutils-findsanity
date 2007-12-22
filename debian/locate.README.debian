@@ -23,7 +23,7 @@ Questions and examples
 My systems slows down everyday at bootup, how can I stop the daily
 updatedb-invocations?
 
-* Generate a new file /etc/updatedb.findutils.cron.local that consist of
+* Generate a new file /etc/updatedb.findutils.cron.local that consists of
   the single line "exit 0" (without the quotes).
 
 * Uninstall locate.
