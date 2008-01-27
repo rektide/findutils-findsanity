@@ -6,6 +6,10 @@ findutils (4.2.32-1) unstable; urgency=low
     - Correct docs for %b printf specifier in info manual, too.
       (Closes: #400936)
    * License now GPLv3+, update debian/copyright.
+   * Try to preserve user changes of updatedb.conf on upgrading from findutils
+     versions with included locate: If updatedb.conf is user modified and
+     /etc/updatedb.findutils.cron.local does not yet exist, generate the
+     latter from the former. Closes: #459570
 
  -- Andreas Metzler <ametzler@debian.org>  Sun, 27 Jan 2008 10:18:07 +0100
 
