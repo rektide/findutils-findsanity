@@ -1,2 +1,2 @@
 version=2
-ftp://alpha.gnu.org/gnu/findutils/findutils-([\d\.\d]+)\.tar\.gz
+ftp://ftp.gnu.org/gnu/findutils/findutils-([\d\.\d]+)\.tar\.gz
