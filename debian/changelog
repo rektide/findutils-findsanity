@@ -6,6 +6,7 @@ findutils (4.4.0-1) unstable; urgency=low
   * Point watchfile to ftp.gnu.org instead of alpha.gnu.org.
   * Use doc-base section "File Management", since Apps/Tools is gone.
   * Only run $(MAKE) distclean if Makefile exists.
+  * Symlink find(1) to oldfind(1) manpage.
 
  -- Andreas Metzler <ametzler@debian.org>  Sat, 15 Mar 2008 16:26:43 +0100
 
