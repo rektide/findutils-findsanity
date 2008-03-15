@@ -1,6 +1,7 @@
 findutils (4.4.0-1) unstable; urgency=low
 
   * New upstream stable version.
+    + Some fixes for the texinfo manuals. (Closes: #470308)
   * First upload to unstable, close bugs fixed by previous uploads to
     experimental:
     + POSIX is going to or has already standardized -[i]path. Stop throwing a
