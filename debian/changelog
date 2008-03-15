@@ -1,8 +1,24 @@
 findutils (4.4.0-1) unstable; urgency=low
 
-  * unreleased
-  * New upstream stable version, upload to unstable.
-  * Stop trying to uinstall removed README-alpha.
+  * New upstream stable version.
+  * First upload to unstable, close bugs fixed by previous uploads to
+    experimental:
+    + POSIX is going to or has already standardized -[i]path. Stop throwing a
+      warning sugging to use -[i]wholename instead. Closes: #336078
+    + Better error message if the second operand of a binary operator is
+      missing. (Closes: #403823)
+    + #22056: -Xtime tests are off by one second (e.g. rm -f x; touch x;
+      find x -mtime 0 should print x). Closes: #460733
+    + If locatedb is old show actual age in warning mesage instead of just
+      saying "more than 8 days old". (Closes: #354384)
+    + Do not show warnings about argument ordering if -nowarn is specified.
+      (Closes: #370057)
+    + find -execdir will not segfault if PATH is not set. Closes: #438689
+    + Different error message on 'find ""'. (Closes: #21084)
+    + Support for *BSDs -newerXY tests allows to find files with a date in the
+      future without generating a temporary file. "find -newermt 2007-07-07"
+      (Closes: #291419)
+  * Stop trying to install removed README-alpha.
   * Point watchfile to ftp.gnu.org instead of alpha.gnu.org.
   * Use doc-base section "File Management", since Apps/Tools is gone.
   * Only run $(MAKE) distclean if Makefile exists.
