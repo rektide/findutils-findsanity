@@ -1,8 +1,146 @@
-findutils (4.2.33-2) UNRELEASED; urgency=low
+findutils (4.4.0-1) unstable; urgency=low
 
-  * NOT RELEASED YET
+  * unreleased
+  * New upstream stable version, upload to unstable.
+  * Stop trying to uinstall removed README-alpha.
+  * Point watchfile to ftp.gnu.org instead of alpha.gnu.org.
+  * Use doc-base section "File Management", since Apps/Tools is gone.
+  * Only run $(MAKE) distclean if Makefile exists.
 
- -- Andreas Metzler <ametzler@debian.org>  Sat, 16 Feb 2008 13:41:17 +0100
+ -- Andreas Metzler <ametzler@debian.org>  Sat, 15 Mar 2008 16:26:43 +0100
+
+findutils (4.3.13-1) experimental; urgency=low
+
+  * New upstream version.
+    #22057: Actually rename the old locate database to the new one
+    atomically, instead of just claiming the rename is atomic in a
+    comment. Closes: #461585
+    #22056: -Xtime tests are off by one second (e.g. rm -f x; touch x;
+    find x -mtime 0 should print x). Closes: #460733
+  * merge from 4.2.x:
+    - Add Vcs-Svn, Vcs-Browser and Homepage control fields.
+    - Try to preserve user changes of updatedb.conf on upgrading from
+      findutils versions with included locate: If updatedb.conf is user
+      modified and /etc/updatedb.findutils.cron.local does not yet exist,
+      generate the latter from the former. Closes: #459570
+  * Upstream's documentation licensing has been fixed, update
+    debian/copyright.
+
+ -- Andreas Metzler <ametzler@debian.org>  Sat, 01 Mar 2008 12:34:04 +0100
+
+
+findutils (4.3.12-1) experimental; urgency=low
+
+  * New upstream version
+  * Merge changes 4.2.31-3-->4.2.31-4 from unstable.
+    + Standards-Version: 3.7.3, no changes required.
+    + findutils Suggests: mlocate|locate|slocate. Long description of
+      findutils was improved. (Thanks, Justin B Rye). Closes: #455690
+    + Fixed minor grammar error in 4.2.31-2 entry of NEWS.Debian. (Thanks,
+      Steve Langasek) Closes: #457231
+    + Allow setting IONICE_CLASS and IONICE_PRIORITY in
+      /etc/updatedb.findutils.cron.local. (Thanks, Kees Cook).
+      Closes: #454677
+    + locate-cron.daily
+      - Do not run ionice for kernels < 2.6.13. Redirect ionice stderr and
+        stdout to /dev/null. (Thanks, Craig Sanders)
+      - Allow disabling ionice by setting  UPDATDB_NO_IONICE to a non-empty
+        value in /etc/updatedb.findutils.cron.local Closes: #456291
+      - run with "set -e"
+    + Reformat /usr/share/doc/locate/README.Debian and add a comment about the
+      effects of IONICE_CLASS. (Thanks, James Youngman)
+    + Do not export NICE in the cronjob, since updatedb itself does not make
+      use of it.
+   * Refer to /usr/share/common-licenses/GFDL-1.2 in debian/copyright.
+
+ -- Andreas Metzler <ametzler@debian.org>  Sun, 06 Jan 2008 11:52:09 +0100
+
+findutils (4.3.11-1) experimental; urgency=low
+
+  * New upstream version.
+    + GPLv3+. Update debian/copyright.
+    + includes fix for savannah #20139: find -[acm]time -N (wrongly) includes
+      files from N days ago, as well as (correctly) from less than N days ago.
+    + POSIX is going to or has already standardized -[i]path. Stop throwing a
+      warning sugging to use -[i]wholename instead. Closes: #336078
+    + find -execdir will not segfault if PATH is not set. Closes: #438689
+  * Add a note about the separate locate package to findutils' NEWS.Debian.
+    README.Debian only talks about locate. Move it to the correct package,
+    update contents. Closes: #453002
+  * locate needs a Replaces: findutils (<< 4.2.31-2), since the helper
+    binaries in /usr/lib/locate/ are shipped in both packages. Closes: #453078
+  * Rename /etc/cron.daily/find to /etc/cron.daily/locate. Use "export foo
+    bar" instead of "export foo ; export bar". (Thanks, jidanni).
+    Closes: #453490
+
+ -- Andreas Metzler <ametzler@debian.org>  Sun,  2 Dec 2007 16:14:34 +0100
+
+findutils (4.3.8-3) experimental; urgency=low
+
+  * fix removal of alternatives. (Thanks, dato)
+
+ -- Andreas Metzler <ametzler@debian.org>  Sat, 17 Nov 2007 11:57:45 +0100
+
+findutils (4.3.8-2) experimental; urgency=low
+
+  * Split off locate/updatedb to a separate package.
+    (resulting description change Closes: #448523)
+  * Drop misnamed /etc/updatedb.conf and include its contents in cron.daily
+    file.  (updatedb.conf only configured the cronjob, but not any
+    invocation of updatedb. (Closes: #342713). Allow keeping customization in a
+    separate /etc/updatedb.findutils.cron.local (Closes: #344213)
+  * Set cronjob IO scheduling to idle. (Thanks, Alberto Marmodoro)
+    (Closes: #448398)
+  * Use alternatives to manage /usr/bin/locate and /usr/bin/updatedb.
+    (Closes: #57748)
+  * Remove orphaned locate related conffiles on findutils upgrade as described
+    in http://wiki.debian.org/DpkgConffileHandling
+  * In findutils.postinst remove locate database unless locate is installed.
+
+ -- Andreas Metzler <ametzler@debian.org>  Sun, 11 Nov 2007 15:04:12 +0100
+
+findutils (4.3.8-1) experimental; urgency=low
+
+  * New upstream version 4.3.8.
+    - Fixes locate heap buffer overflow when using databases in old format.
+      (CVE-2007-2452) Closes: #426862
+    - Fixes savannah bug #20005: Tests -mtime -n and -mtime +n incorrectly
+      treated like -mtime n. Closes: #426505
+    - Correct docs for %b printf specifier. (Closes: #400936)
+  * Pulled from CVS: 01_sv-bug-20139.dpatch:
+    find -[acm]time -N (wrongly) includes files from N days ago, as well as
+    (correctly) from less than N days ago.
+
+ -- Andreas Metzler <ametzler@debian.org>  Sat, 23 Jun 2007 09:05:25 +0200
+
+findutils (4.3.6-1) experimental; urgency=low
+
+  * New upstream version.
+
+ -- Andreas Metzler <ametzler@debian.org>  Sun, 27 May 2007 10:50:49 +0200
+
+findutils (4.3.5-1) experimental; urgency=low
+
+  * New upstream version.
+    - Better error message if the second operand of a binary operator is
+      missing. (Closes: #403823)
+    - If locatedb is old show actual age in warning mesage instead of just
+      saying "more than 8 days old". (Closes: #354384)
+    - Do not show warnings about argument ordering if -nowarn is specified.
+      (Closes: #370057)
+    - Correct docs for %b printf specifier. (Closes: #400936)
+    - [-version] instead of [--version] in locate --help. (Closes: #412459)
+    - make clean does not delete regexprops.texi if cross-building.
+      (Closes: #420190)
+    - Different error message on 'find ""'. (Closes: #21084)
+    - Support for *BSDs -newerXY tests allows to find files with a date in the
+      future without generating a temporary file. "find -newermt 2007-07-07"
+      (Closes: #291419)
+    - Non-printable characters escaped in errormessages, too. (Closes: #259194)
+  * Undo workaround for savannah #19550, since it is a glibc bug.
+
+ -- Andreas Metzler <ametzler@debian.org>  Sun, 13 May 2007 14:40:44 +0200
+
 
 findutils (4.2.33-1) unstable; urgency=low
 

@@ -3,7 +3,7 @@ Title: findutils
 Abstract: utilities for finding files--find, xargs, and locate
  These utilities find files meeting specified criteria and perform
  various actions on the files which are found.
-Section: Apps/Tools
+Section: File Management
 
 Format: info
 Index: /usr/share/info/find.info.gz
