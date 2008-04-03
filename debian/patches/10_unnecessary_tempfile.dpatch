@@ -1,0 +1,17 @@
+#! /bin/sh /usr/share/dpatch/dpatch-run
+## unnecessary_tempfile.dpatch by  Andreas Metzler>
+##
+## All lines beginning with `## DP:' are a description of the patch.
+## DP: Stop generating a unnecessary unsafe tempfile in testsuite
+
+@DPATCH@
+diff -urNad findutils-4.4.0~/find/testsuite/find.gnu/xtype-symlink.exp findutils-4.4.0/find/testsuite/find.gnu/xtype-symlink.exp
+--- findutils-4.4.0~/find/testsuite/find.gnu/xtype-symlink.exp	2005-01-24 16:50:30.000000000 +0000
++++ findutils-4.4.0/find/testsuite/find.gnu/xtype-symlink.exp	2008-04-03 17:31:45.000000000 +0000
+@@ -2,6 +2,5 @@
+ exec mkdir tmp
+ exec touch tmp/file
+ exec ln -s file tmp/LINK
+-exec ls -l tmp > /tmp/z
+ find_start p {tmp/LINK  -xtype f }
+ exec rm -rf tmp

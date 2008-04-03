@@ -1,8 +1,9 @@
-findutils (4.4.0-2) UNRELEASED; urgency=low
+findutils (4.4.0-2) unstable; urgency=low
 
-  * NOT RELEASED YET
+  * Stop generating a unnecessary unsafe tempfile in testsuite. Should fix
+    ftbfs on hppa. [debian/patches/10_unnecessary_tempfile.dpatch]
 
- -- Andreas Metzler <ametzler@debian.org>  Sun, 16 Mar 2008 09:40:58 +0100
+ -- Andreas Metzler <ametzler@debian.org>  Thu, 03 Apr 2008 19:38:59 +0200
 
 findutils (4.4.0-1) unstable; urgency=low
 
