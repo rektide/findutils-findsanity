@@ -1,3 +1,9 @@
+findutils (4.4.0-3) UNRELEASED; urgency=low
+
+  * NOT RELEASED YET
+
+ -- Andreas Metzler <ametzler@debian.org>  Thu, 03 Apr 2008 19:46:27 +0200
+
 findutils (4.4.0-2) unstable; urgency=low
 
   * Stop generating a unnecessary unsafe tempfile in testsuite. Should fix
