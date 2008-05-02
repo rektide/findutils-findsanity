@@ -16,7 +16,7 @@ FINDOPTIONS='-ignore_readdir_race'
 # filesystems which are pruned from updatedb database
 PRUNEFS="NFS nfs nfs4 afs binfmt_misc proc smbfs autofs iso9660 ncpfs coda devpts ftpfs devfs mfs shfs sysfs cifs lustre_lite tmpfs usbfs udf"
 # paths which are pruned from updatedb database
-PRUNEPATHS="/tmp /usr/tmp /var/tmp /afs /amd /alex /var/spool /sfs /media"
+PRUNEPATHS="/tmp /usr/tmp /var/tmp /afs /amd /alex /var/spool /sfs /media /var/lib/schroot/mount"
 # netpaths which are added
 NETPATHS=""
 # run find as this user
