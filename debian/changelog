@@ -1,6 +1,10 @@
 findutils (4.4.0-3) UNRELEASED; urgency=low
 
   * NOT RELEASED YET
+  * Sync with ubuntu:
+    - Change version check in findutils preinst from "$2" le-nl "4.2.31-1"
+      to "$2" lt-nl "4.2.31-2". This check correctly catches the respective
+      ubuntu or backport versions.
 
  -- Andreas Metzler <ametzler@debian.org>  Thu, 03 Apr 2008 19:46:27 +0200
 
