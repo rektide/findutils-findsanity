@@ -7,10 +7,11 @@ findutils (4.4.0-3) unstable; urgency=low
     - add /var/lib/schroot/mount to PRUNEPATHS.
   * Add ocfs2 to PRUNEFS. Closes: #516776
   * Standards-Version 3.8.0. No changes required.
-  * Clean up debian/rules:
+  * Clean up build system.
     + Stop setting INSTALL_PROGRAM += -s on DEB_BUILD_OPTIONS=nostrip in
       debian/rules.
     + Remove old commented commands.
+    + Switch to debhelper v7. (Use dh_prep instead of dh_clean -k).
 
  -- Andreas Metzler <ametzler@debian.org>  Sun, 01 Mar 2009 18:27:17 +0100
 
