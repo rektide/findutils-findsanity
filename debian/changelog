@@ -10,6 +10,7 @@ findutils (4.4.0-3) unstable; urgency=low
   * Clean up debian/rules:
     + Stop setting INSTALL_PROGRAM += -s on DEB_BUILD_OPTIONS=nostrip in
       debian/rules.
+    + Remove old commented commands.
 
  -- Andreas Metzler <ametzler@debian.org>  Sun, 01 Mar 2009 18:27:17 +0100
 

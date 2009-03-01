@@ -32,7 +32,7 @@ config.status: patch-stamp configure
 	ln -s /usr/share/misc/config.sub /usr/share/misc/config.guess .
 
 	dh_testdir
-	# Add here commands to configure the package.
+	# Configure the package.
 	CFLAGS="$(CFLAGS)" ./configure $(confflags) \
 		--prefix=/usr --localstatedir=/var/cache/locate \
 		--enable-d_type-optimisation \
@@ -46,7 +46,7 @@ build: build-stamp
 build-stamp:  config.status
 	dh_testdir
 
-	# Add here commands to compile the package.
+	# Compile the package.
 	$(MAKE)
 ifeq ($(DEB_BUILD_GNU_TYPE),$(DEB_HOST_GNU_TYPE))
 	$(MAKE) check
@@ -62,15 +62,6 @@ clean1:
 	# Add here commands to clean up after the build process.
 	[ ! -f Makefile ] || $(MAKE) distclean
 	rm -f config.guess config.sub doc/find.info*
-
-# ifneq "$(wildcard /usr/share/misc/config.sub)" ""
-# 	cp -f /usr/share/misc/config.sub config.sub
-# endif
-# ifneq "$(wildcard /usr/share/misc/config.guess)" ""
-# 	cp -f /usr/share/misc/config.guess config.guess
-# endif
-
-
 	dh_clean
 
 install: build
@@ -104,8 +95,6 @@ binary-arch: build install
 	dh_installdocs
 	dh_installexamples
 	dh_install
-#	dh_installmenu
-#	dh_installdebconf
 #	# we have to install the cron script manually, it has the wrong filename
 #	dh_installcron
 	dh_installinfo
@@ -114,11 +103,7 @@ binary-arch: build install
 	dh_strip
 	dh_compress
 	dh_fixperms
-#	dh_perl
-#	dh_python
-#	dh_makeshlibs
 	dh_installdeb
-#	dh_shlibdeps -- -dPre-Depends
 	dh_shlibdeps
 	dh_gencontrol
 	dh_md5sums
