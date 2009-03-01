@@ -4,7 +4,7 @@ Priority: required
 Maintainer: Andreas Metzler <ametzler@debian.org>
 Uploaders: Chuan-kai Lin <cklin@debian.org>
 Build-Depends: texinfo, debhelper (>> 4.0.0), dpatch, autotools-dev, dejagnu
-Standards-Version: 3.7.3
+Standards-Version: 3.8.0
 Vcs-Svn: svn://svn.debian.org/svn/pkg-findutils/trunk
 Vcs-Browser: http://svn.debian.org/wsvn/pkg-findutils/trunk/
 Homepage: http://savannah.gnu.org/projects/findutils/

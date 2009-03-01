@@ -6,6 +6,7 @@ findutils (4.4.0-3) unstable; urgency=low
       ubuntu or backport versions.
     - add /var/lib/schroot/mount to PRUNEPATHS.
   * Add ocfs2 to PRUNEFS. Closes: #516776
+  * Standards-Version 3.8.0. No changes required.
 
  -- Andreas Metzler <ametzler@debian.org>  Sun, 01 Mar 2009 18:27:17 +0100
 
