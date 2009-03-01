@@ -1,13 +1,13 @@
-findutils (4.4.0-3) UNRELEASED; urgency=low
+findutils (4.4.0-3) unstable; urgency=low
 
-  * NOT RELEASED YET
-  * Sync with ubuntu:
+  * Selective pull from Ubuntu:
     - Change version check in findutils preinst from "$2" le-nl "4.2.31-1"
       to "$2" lt-nl "4.2.31-2". This check correctly catches the respective
       ubuntu or backport versions.
     - add /var/lib/schroot/mount to PRUNEPATHS.
+  * Add ocfs2 to PRUNEFS. Closes: #516776
 
- -- Andreas Metzler <ametzler@debian.org>  Thu, 03 Apr 2008 19:46:27 +0200
+ -- Andreas Metzler <ametzler@debian.org>  Sun, 01 Mar 2009 18:27:17 +0100
 
 findutils (4.4.0-2) unstable; urgency=low
 
