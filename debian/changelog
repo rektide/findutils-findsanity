@@ -1,4 +1,4 @@
-findutils (4.4.1-1) UNRELEASED; urgency=low
+findutils (4.4.1-1) unstable; urgency=low
 
   * New upstream maintance release.
     + Drop 10_unnecessary_tempfile.dpatch, applied upstream.
@@ -11,7 +11,7 @@ findutils (4.4.1-1) UNRELEASED; urgency=low
     DEB_BUILD_OPTIONS=noopt.
   * Fix typo "diagnositcs" in docs. Closes: #525263
 
- -- Andreas Metzler <ametzler@debian.org>  Sat, 25 Apr 2009 08:24:19 +0200
+ -- Andreas Metzler <ametzler@debian.org>  Sat, 25 Apr 2009 10:13:14 +0200
 
 findutils (4.4.0-3) unstable; urgency=low
 
