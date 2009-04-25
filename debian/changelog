@@ -3,7 +3,8 @@ findutils (4.4.1-1) UNRELEASED; urgency=low
   * New upstream maintance release.
     + Drop 10_unnecessary_tempfile.dpatch, applied upstream.
     + Drops duplicate filesystem proc in PRUNEFS. Closes: #518120
-  * Add support for DEB_BUILD_OPTIONS=nocheck.
+  * Standards-Version 3.8.1.
+    + Add support for DEB_BUILD_OPTIONS=nocheck.
 
  -- Andreas Metzler <ametzler@debian.org>  Sat, 25 Apr 2009 08:24:19 +0200
 
