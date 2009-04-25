@@ -10,6 +10,7 @@ findutils (4.4.1-1) unstable; urgency=low
   * Use filter instead of findstring when checking for
     DEB_BUILD_OPTIONS=noopt.
   * Fix typo "diagnositcs" in docs. Closes: #525263
+  * Update copyright stanza in debian/copyright.
 
  -- Andreas Metzler <ametzler@debian.org>  Sat, 25 Apr 2009 10:13:14 +0200
 
