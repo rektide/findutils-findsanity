@@ -5,6 +5,8 @@ findutils (4.4.1-1) UNRELEASED; urgency=low
     + Drops duplicate filesystem proc in PRUNEFS. Closes: #518120
   * Standards-Version 3.8.1.
     + Add support for DEB_BUILD_OPTIONS=nocheck.
+  * Use filter instead of findstring when checking for
+    DEB_BUILD_OPTIONS=noopt.
 
  -- Andreas Metzler <ametzler@debian.org>  Sat, 25 Apr 2009 08:24:19 +0200
 
