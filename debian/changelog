@@ -1,6 +1,6 @@
 findutils (4.4.1-1) unstable; urgency=low
 
-  * New upstream maintance release.
+  * New upstream maintenance release.
     + Drop 10_unnecessary_tempfile.dpatch, applied upstream.
     + Drops duplicate filesystem proc in PRUNEFS. Closes: #518120
     + Correct code for displaying \0 in find.1. Closes: #476218
