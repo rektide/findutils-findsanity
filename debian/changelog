@@ -1,8 +1,11 @@
-findutils (4.4.0-4) UNRELEASED; urgency=low
+findutils (4.4.1-1) UNRELEASED; urgency=low
 
-  * NOT RELEASED YET
+  * New upstream maintance release.
+    + Drop 10_unnecessary_tempfile.dpatch, applied upstream.
+    + Drops duplicate filesystem proc in PRUNEFS. Closes: #518120
+  * Add support for DEB_BUILD_OPTIONS=nocheck.
 
- -- Andreas Metzler <ametzler@debian.org>  Sun, 01 Mar 2009 19:36:06 +0100
+ -- Andreas Metzler <ametzler@debian.org>  Sat, 25 Apr 2009 08:24:19 +0200
 
 findutils (4.4.0-3) unstable; urgency=low
 
