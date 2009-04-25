@@ -1,0 +1,31 @@
+#! /bin/sh /usr/share/dpatch/dpatch-run
+## 10_typo_525263.diff.dpatch by  <ametzler@debian.org>
+##
+## All lines beginning with `## DP:' are a description of the patch.
+## DP: Fix typo in manpage.
+
+@DPATCH@
+diff -urNad findutils-4.4.1~/doc/find.texi findutils-4.4.1/doc/find.texi
+--- findutils-4.4.1~/doc/find.texi	2009-04-21 20:18:13.000000000 +0000
++++ findutils-4.4.1/doc/find.texi	2009-04-25 07:38:12.000000000 +0000
+@@ -3722,7 +3722,7 @@
+ Setting this variable also turns off warning messages (that is, implies
+ @samp{-nowarn}) by default, because POSIX requires that apart from
+ the output for @samp{-ok}, all messages printed on stderr are
+-diagnositcs and must result in a non-zero exit status.
++diagnostics and must result in a non-zero exit status.
+ 
+ Arguments to @samp{-perm} beginning with @samp{+} are treated
+ differently when POSIXLY_CORRECT is set. See
+diff -urNad findutils-4.4.1~/find/find.1 findutils-4.4.1/find/find.1
+--- findutils-4.4.1~/find/find.1	2009-04-21 20:18:13.000000000 +0000
++++ findutils-4.4.1/find/find.1	2009-04-25 07:37:37.000000000 +0000
+@@ -1731,7 +1731,7 @@
+ by default, because POSIX requires that apart from
+ the output for 
+ .BR \-ok ,
+-all messages printed on stderr are diagnositcs and must result in a
++all messages printed on stderr are diagnostics and must result in a
+ non-zero exit status.
+ .IP
+ When POSIXLY_CORRECT is not set, 

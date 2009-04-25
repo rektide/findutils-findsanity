@@ -3,10 +3,13 @@ findutils (4.4.1-1) UNRELEASED; urgency=low
   * New upstream maintance release.
     + Drop 10_unnecessary_tempfile.dpatch, applied upstream.
     + Drops duplicate filesystem proc in PRUNEFS. Closes: #518120
+    + Correct code for displaying \0 in find.1. Closes: #476218
+    + Updates documentation for find -perm /mode. Closes: #478005
   * Standards-Version 3.8.1.
     + Add support for DEB_BUILD_OPTIONS=nocheck.
   * Use filter instead of findstring when checking for
     DEB_BUILD_OPTIONS=noopt.
+  * Fix typo "diagnositcs" in docs. Closes: #525263
 
  -- Andreas Metzler <ametzler@debian.org>  Sat, 25 Apr 2009 08:24:19 +0200
 
