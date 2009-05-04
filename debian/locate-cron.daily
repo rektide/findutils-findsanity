@@ -11,6 +11,11 @@ set -e
 
 [ -e /usr/bin/updatedb.findutils ] || exit 0
 
+if [ "$(id -u)" != "0" ]; then
+	echo "You must be root."
+	exit 1
+fi
+ 
 # Global options for invocations of find(1)
 FINDOPTIONS='-ignore_readdir_race'
 # filesystems which are pruned from updatedb database
