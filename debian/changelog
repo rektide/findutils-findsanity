@@ -2,6 +2,8 @@ findutils (4.4.2-2) UNRELEASED; urgency=low
 
   * NOT RELEASED YET
   * Use dh_installcron to install locate's cron script.
+  * Stop suggesting slocate, it has been removed from the archive.
+    Closes: #565653
 
  -- Andreas Metzler <ametzler@debian.org>  Sat, 06 Jun 2009 17:14:58 +0200
 

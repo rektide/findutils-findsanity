@@ -14,7 +14,7 @@ Architecture: any
 Essential: yes
 Pre-Depends: ${shlibs:Depends}
 Depends: ${misc:Depends}
-Suggests: mlocate|locate|slocate
+Suggests: mlocate|locate
 Description: utilities for finding files--find, xargs
  GNU findutils provides utilities to find files meeting specified
  criteria and perform various actions on the files which are found.
