@@ -25,6 +25,9 @@ findutils (4.4.1-1) unstable; urgency=low
     + Drops duplicate filesystem proc in PRUNEFS. Closes: #518120
     + Correct code for displaying \0 in find.1. Closes: #476218
     + Updates documentation for find -perm /mode. Closes: #478005
+    + Fixes segfault if  -newerXY test was not followed by any argument.
+      Closes: #496853
+    
   * Standards-Version 3.8.1.
     + Add support for DEB_BUILD_OPTIONS=nocheck.
   * Use filter instead of findstring when checking for
