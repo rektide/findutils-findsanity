@@ -1,12 +1,13 @@
-findutils (4.4.2-2) UNRELEASED; urgency=low
+findutils (4.4.2-2) unstable; urgency=low
 
   * Use dh_installcron to install locate's cron script.
   * Stop suggesting slocate, it has been removed from the archive.
     Closes: #565653
   * Enable hardened build flags through dpkg-buildflags. (Thank's, Moritz
     Muehlenhoff). Closes: #653849
+  * Drop dpatch build-dependency.
 
- -- Andreas Metzler <ametzler@debian.org>  Sat, 06 Jun 2009 17:14:58 +0200
+ -- Andreas Metzler <ametzler@debian.org>  Sat, 31 Dec 2011 16:21:15 +0100
 
 findutils (4.4.2-1) unstable; urgency=low
 
