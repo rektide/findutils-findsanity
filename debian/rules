@@ -19,13 +19,10 @@ else
 	confflags += --build $(DEB_BUILD_GNU_TYPE) --host $(DEB_HOST_GNU_TYPE)
 endif
 
-CFLAGS = -Wall -g
-
-ifneq (,$(filter noopt,$(DEB_BUILD_OPTIONS)))
-	CFLAGS += -O0
-else
-	CFLAGS += -O2
-endif
+CFLAGS := `dpkg-buildflags --get CFLAGS`
+CFLAGS += -Wall
+LDFLAGS := `dpkg-buildflags --get LDFLAGS`
+CPPFLAGS := `dpkg-buildflags --get CPPFLAGS`
 
 config.status: patch-stamp configure
 	rm -f config.guess config.sub
@@ -33,7 +30,7 @@ config.status: patch-stamp configure
 
 	dh_testdir
 	# Configure the package.
-	CFLAGS="$(CFLAGS)" ./configure $(confflags) \
+	CFLAGS="$(CFLAGS)" CPPFLAGS="$(CPPFLAGS)" LDFLAGS="$(LDFLAGS)" ./configure $(confflags) \
 		--prefix=/usr --localstatedir=/var/cache/locate \
 		--enable-d_type-optimisation \
 		--libexecdir='$${prefix}/lib/locate' \
