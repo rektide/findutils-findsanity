@@ -1,11 +1,10 @@
-findutils (4.4.2-4) UNRELEASED; urgency=low
+findutils (4.4.2-4) unstable; urgency=low
 
-  * NOT RELEASED YET
   * Use 3.0 (quilt) format.
   * 10_Fix29828-testsuite-FreeBSD.patch, pulled from 4.5 series. Fix testsuite
     deadlock on FreeBSD.
 
- -- Andreas Metzler <ametzler@debian.org>  Sat, 31 Dec 2011 17:25:37 +0100
+ -- Andreas Metzler <ametzler@debian.org>  Fri, 06 Jan 2012 10:40:28 +0100
 
 findutils (4.4.2-3) unstable; urgency=low
 
