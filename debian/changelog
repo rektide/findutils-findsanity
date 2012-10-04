@@ -2,6 +2,7 @@ findutils (4.4.2-5) unstable; urgency=low
 
   * Fix config.(sub|guess) update, the relevant files are in build-aux/.
     Closes: #689620
+  * Add build-arch/build-indep targets.
 
  -- Andreas Metzler <ametzler@debian.org>  Thu, 04 Oct 2012 19:16:52 +0200
 

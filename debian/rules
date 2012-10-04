@@ -35,7 +35,10 @@ config.status: configure
 		--infodir='$${prefix}/share/info'
 
 
-build: build-stamp
+build: build-arch build-indep
+build-arch: build-stamp
+build-indep:
+	#build-indep: nothing to do
 
 build-stamp:  config.status
 	dh_testdir
@@ -102,4 +105,4 @@ binary-arch: build install
 	dh_builddeb
 
 binary: binary-indep binary-arch
-.PHONY: build clean binary-indep binary-arch binary install 
+.PHONY: build build-arch build-indep clean binary-indep binary-arch binary install 
