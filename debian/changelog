@@ -1,8 +1,9 @@
-findutils (4.4.2-5) UNRELEASED; urgency=low
+findutils (4.4.2-5) unstable; urgency=low
 
-  * NOT RELEASED YET
+  * Fix config.(sub|guess) update, the relevant files are in build-aux/.
+    Closes: #689620
 
- -- Andreas Metzler <ametzler@debian.org>  Fri, 06 Jan 2012 10:43:14 +0100
+ -- Andreas Metzler <ametzler@debian.org>  Thu, 04 Oct 2012 19:16:52 +0200
 
 findutils (4.4.2-4) unstable; urgency=low
 
