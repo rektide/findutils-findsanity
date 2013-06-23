@@ -1,3 +1,9 @@
+findutils (4.4.2-7) UNRELEASED; urgency=low
+
+  * NOT RELEASED YET
+
+ -- Andreas Metzler <ametzler@debian.org>  Sun, 23 Jun 2013 14:33:51 +0200
+
 findutils (4.4.2-6) unstable; urgency=low
 
   * [20_texi_ftbfs.diff] Pull some texi fixes from 4.5.x. Closes: #710849
