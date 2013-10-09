@@ -158,6 +158,11 @@ static bool query_before_executing = false;
  */
 static char input_delimiter = '\0';
 
+/* Re-open /dev/tty as stdin for spawned processes.
+ */
+static bool reopenStdin = 0;
+
+static char* reopenStdinPath = "/dev/tty";
 
 /* Name of the environment variable which indicates which 'slot'
  * the child process is in.   This can be used to do some kind of basic
@@ -188,6 +193,7 @@ static struct option const longopts[] =
   {"exit", no_argument, NULL, 'x'},
   {"max-procs", required_argument, NULL, 'P'},
   {"process-slot-var", required_argument, NULL, PROCESS_SLOT_VAR},
+  {"open-dev-tty", no_argument, NULL, 'p'},
   {"version", no_argument, NULL, 'v'},
   {"help", no_argument, NULL, 'h'},
   {NULL, no_argument, NULL, 0}
@@ -474,7 +480,7 @@ main (int argc, char **argv)
       bc_use_sensible_arg_max (&bc_ctl);
     }
 
-  while ((optc = getopt_long (argc, argv, "+0a:E:e::i::I:l::L:n:prs:txP:d:",
+  while ((optc = getopt_long (argc, argv, "+0a:E:e::i::I:l::L:n:prs:txoP:d:",
 			      longopts, &option_index)) != -1)
     {
       switch (optc)
@@ -587,6 +593,10 @@ main (int argc, char **argv)
 	  /* Allow only up to LONG_MAX child processes. */
 	  proc_max = parse_num (optarg, 'P', 0L, LONG_MAX, 1);
 	  break;
+
+        case 'o':
+          reopenStdin= true;
+          break;
 
         case 'a':
           input_file = optarg;
@@ -1156,6 +1166,19 @@ prep_child_for_exec (void)
 		 quotearg_n_style (0, locale_quoting_style, inputfile));
 	}
     }
+  if(reopenStdin)
+    {
+      int fd = open (reopenStdinPath, O_RDONLY)
+      if (fd == -1)
+        {
+          error (EXIT_FAILURE, 0, _("Could not re-open stdin %s"), reopenStdinPath);
+        }
+      if (dup2 (fd, STDIN_FILENO) != 0)
+        {
+          error (EXIT_FAILURE, 0, _("Cannot dup2 to stdin."));
+        }
+      close (fd);
+    }
 }
 
 
@@ -1636,6 +1659,7 @@ usage (FILE *stream)
   HTL (_("  -P, --max-procs=MAX-PROCS    run at most MAX-PROCS processes at a time\n"));
   HTL (_("  -p, --interactive            prompt before running commands\n"));
   HTL (_("      --process-slot-var=VAR   set environment variable VAR in child processes\n"));
+  HTL (_("  -o                           re-open /dev/tty as stdin"));
   HTL (_("  -r, --no-run-if-empty        if there are no arguments, then do not run COMMAND;\n"
          "                                 if this option is not given, COMMAND will be\n"
          "                                 run at least once\n"));
